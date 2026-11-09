@@ -1,461 +1,490 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#050816" />
-    <meta name="description" content="Portfolio pribadi Satria — web developer dan UI/UX designer yang membangun pengalaman digital modern, premium, dan responsif." />
-    <meta name="robots" content="index, follow" />
-    <title>Portfolio | Satria</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="theme-color" content="#111815" />
+    <meta name="description" content="Satria Ananda — portofolio dengan arah karier Data Analyst dan Backend Developer. Keahlian MySQL, PHP, Laravel, dan Go; catatan proyek dan pengalaman di Bali." />
+    <title>Satria Ananda — Data & Backend / Portfolio</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
   </head>
-  <body class="bg-[#050816] text-white antialiased selection:bg-[#2563eb]/70 selection:text-white">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-[#2563eb] focus:px-4 focus:py-2 focus:text-sm focus:text-white">Lewati ke konten utama</a>
-
-    <header class="sticky top-0 z-50 border-b border-white/10 bg-[#050816]/70 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.2)]">
-      <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8" aria-label="Primary navigation">
-        <a href="#home" class="brand-mark text-xl font-black tracking-[0.35em]">
-          <span>S</span><span>A</span><span>T</span><span>R</span><span>I</span><span>A</span>
+  <body>
+    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+    <header class="site-header">
+      <nav class="container navigation" aria-label="Navigasi utama">
+        <a class="brand" href="#home" aria-label="Satria Ananda, beranda">
+        <span class="brand-symbol" aria-hidden="true">s<span>a</span></span>
+        <span class="brand-name">SATRIA ANANDA<span>DATA / SYSTEMS / NOTES</span></span>
         </a>
-
-        <button id="menu-btn" class="rounded-lg border border-white/10 p-2 text-[#94a3b8] transition hover:text-white lg:hidden" aria-label="Toggle menu" aria-expanded="false">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-
-        <div id="menu" class="hidden w-full flex-col gap-4 border-t border-white/10 pt-4 text-sm text-[#94a3b8] lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-8 lg:border-0 lg:p-0">
-          <a href="#home" class="nav-link relative transition hover:text-white">Home</a>
-          <a href="#about" class="nav-link relative transition hover:text-white">About</a>
-          <a href="#skills" class="nav-link relative transition hover:text-white">Skills</a>
-          <a href="#projects" class="nav-link relative transition hover:text-white">Projects</a>
-          <a href="#experience" class="nav-link relative transition hover:text-white">Experience</a>
-          <a href="#contact" class="nav-link relative transition hover:text-white">Contact</a>
+        <div class="nav-menu" id="menu">
+          <a class="nav-link" href="#projects">Catatan proyek</a>
+          <a class="nav-link" href="#skills">Keahlian</a>
+          <a class="nav-link" href="#about">Tentang</a>
+          <a class="nav-link" href="#contact">Kontak <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="nav-actions">
+          <button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-label="Aktifkan tema terang" hidden><span aria-hidden="true">☼</span></button>
+          <button class="menu-toggle" id="menu-btn" type="button" aria-label="Buka navigasi" aria-expanded="false" aria-controls="menu" hidden>Menu <span aria-hidden="true">+</span></button>
         </div>
       </nav>
     </header>
-
     <main id="main-content">
-      <!-- Hero Section -->
-      <section id="home" class="fade-up mx-auto grid max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-32">
-        <div class="order-2 flex justify-center lg:order-1">
-          <div class="fade-left relative">
-            <div class="hero-orb hero-orb-one"></div>
-            <div class="hero-orb hero-orb-two"></div>
-            <img src="assets/images/hero.png" alt="Foto profil Satria" data-parallax class="relative mx-auto w-full max-w-md rounded-[40%_60%_55%_45%/45%_40%_60%_55%] border border-white/10 shadow-[0_25px_80px_rgba(37,99,235,0.25)] floating" />
-          </div>
+      <section class="hero container" id="home" aria-labelledby="hero-title">
+        <div class="section-meta">
+          <p class="mono">PORTFOLIO / DATA LAB EDITORIAL</p>
+          <p class="mono"><span class="status-dot" aria-hidden="true"></span> BALI, INDONESIA</p>
         </div>
-
-        <div class="fade-right order-1 lg:order-2">
-          <p class="mb-3 text-sm uppercase tracking-[0.35em] text-[#facc15]">Hello, I’m</p>
-          <h1 class="text-4xl font-bold leading-[1.1] sm:text-5xl lg:text-6xl">
-            <span class="text-[#facc15]">Satria</span>
-            <br />
-            <span class="hero-title-line text-white">
-              <span>I’m a</span>
-              <span class="ml-2">
-                <span id="typing-text" class="typing-text bg-gradient-to-r from-blue-500 to-yellow-400 bg-clip-text text-transparent"></span>
-              </span>
-            </span>
-          </h1>
-          <p class="mt-6 max-w-2xl text-lg leading-8 text-[#94a3b8]">
-            Saya menciptakan pengalaman digital yang modern, cepat, dan mudah digunakan untuk brand, produk, dan bisnis.
-          </p>
-
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="https://github.com" target="_blank" rel="noreferrer" class="social-icon" aria-label="Github">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.42 7.86 10.95.58.11.79-.25.79-.56v-2.02c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.53-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 2.87-.39c.97 0 1.95.13 2.87.39 2.19-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.73.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.26 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.2.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="social-icon" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.94 8.5A1.56 1.56 0 1 0 6.94 5.38a1.56 1.56 0 0 0 0 3.12ZM5.5 9.75h2.88V18H5.5zM10.3 9.75h2.76v1.12h.04c.38-.72 1.32-1.48 2.72-1.48 2.91 0 3.45 1.91 3.45 4.4V18H16.9v-7.55c0-1.8-.03-4.11-2.5-4.11-2.5 0-2.88 1.95-2.88 3.96V18H10.3z"/></svg>
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" class="social-icon" aria-label="Instagram">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Zm0 2A2.5 2.5 0 0 0 5 7.5v9A2.5 2.5 0 0 0 7.5 19h9a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 16.5 5h-9Zm4.5 2.25a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm5.25-.75a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>
-            </a>
-            <a href="mailto:hello@satria.dev" class="social-icon" aria-label="Email">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm0 2v1.2l8 5.33 8-5.33V7H4Zm16 10V9.8l-7.07 4.71a1 1 0 0 1-1.02 0L4 9.8V17h16Z"/></svg>
-            </a>
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow">HALO, SAYA SATRIA ANANDA</p>
+            <h1 id="hero-title">Data yang jelas.<br />Sistem yang<br /><em>masuk akal.</em></h1>
+            <div class="career-label">
+              <span class="mono">ARAH KARIER</span>
+              <p>Data Analyst <span aria-hidden="true">/</span> Backend Developer</p>
+            </div>
+            <p class="hero-description">Berangkat dari pengembangan web dan Sistem Informasi, saya ingin mendalami cara data dipahami dan sistem dibangun. MySQL, PHP, Laravel, dan Go menjadi bagian dari bekal saya.</p>
+            <div class="hero-links">
+              <a class="text-link" href="#projects">Baca catatan proyek <span aria-hidden="true">↘</span></a><a class="text-link secondary-link" href="resume.html">Lihat CV <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
-
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a href="assets/resume/CV.pdf" class="rounded-full bg-[#2563eb] px-6 py-3 font-semibold text-white shadow-[0_10px_35px_rgba(37,99,235,0.25)] transition duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#3b82f6]" download>Download CV</a>
-            <a href="#contact" class="rounded-full border border-white/15 px-6 py-3 font-semibold text-white transition duration-300 hover:scale-105 hover:border-[#2563eb] hover:text-[#2563eb]">Contact Me</a>
-          </div>
+          <figure class="lab-sheet" aria-labelledby="lab-caption">
+            <div class="lab-topline">
+              <span class="mono">NOTEBOOK / 00</span><span class="lab-indicator" aria-hidden="true"></span>
+            </div>
+            <figcaption id="lab-caption">Dari struktur,<br />menuju pemahaman.</figcaption>
+            <div class="query-header">
+              <span class="mono">schema_notes.sql</span><span class="mono">MYSQL</span>
+            </div>
+            <pre class="query-code" tabindex="0" aria-label="Contoh query MySQL untuk melihat struktur tabel"><code><span class="code-comment">-- Mulai dari mengenali struktur.</span>
+<span class="code-keyword">SELECT</span>
+  table_name,
+  column_name,
+  data_type
+<span class="code-keyword">FROM</span> information_schema.columns
+<span class="code-keyword">WHERE</span> table_schema = <span class="code-keyword">DATABASE</span>()
+<span class="code-keyword">ORDER BY</span> table_name, ordinal_position;</code></pre>
+            <div class="flow-diagram" aria-label="Skema alur: sumber, struktur, lalu pemahaman">
+              <span><small>INPUT</small>Sumber</span><b aria-hidden="true">→</b><span><small>PROSES</small>Struktur</span><b aria-hidden="true">→</b><span><small>OUTPUT</small>Pemahaman</span>
+            </div>
+            <p class="lab-note"><span aria-hidden="true">↳</span> Skema & query ilustratif. Tidak menjalankan database atau menampilkan hasil proyek.</p>
+          </figure>
+        </div>
+        <div class="hero-bottom">
+          <p class="mono">PERTANYAAN YANG TEPAT. STRUKTUR YANG JELAS.</p>
+          <a href="#about" class="mono">KENALI SAYA <span aria-hidden="true">↓</span></a>
         </div>
       </section>
-
-      <section id="about" class="fade-up mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div class="grid gap-8 rounded-[2rem] border border-white/10 bg-[#111827]/80 p-8 shadow-[0_20px_80px_rgba(0,0,0,0.25)] lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
-          <div class="flex items-center justify-center">
-            <img src="assets/images/about.png" alt="Foto about" class="w-full max-w-sm rounded-[1.5rem] border border-white/10 object-cover shadow-[0_20px_60px_rgba(37,99,235,0.2)]" />
-          </div>
+      <section class="section container" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
           <div>
-            <p class="text-sm uppercase tracking-[0.35em] text-[#facc15]">About Me</p>
-            <h2 class="mt-3 text-3xl font-semibold text-white">Saya membangun pengalaman digital yang jelas, elegan, dan fungsional.</h2>
-            <p class="mt-5 text-lg leading-8 text-[#94a3b8]">
-              Saya adalah pengembang web yang fokus pada desain yang bersih, pengalaman pengguna yang nyaman, dan performa yang baik. Saya senang mengubah ide menjadi interface yang modern dan mudah dikembangkan.
-            </p>
-            <div class="mt-8 grid gap-4 sm:grid-cols-2">
-              <div class="rounded-2xl border border-white/10 bg-[#050816]/60 p-4">
-                <p class="text-sm text-[#94a3b8]">Nama</p>
-                <p class="mt-1 font-semibold text-white">Satria Ananda</p>
-              </div>
-              <div class="rounded-2xl border border-white/10 bg-[#050816]/60 p-4">
-                <p class="text-sm text-[#94a3b8]">Umur</p>
-                <p class="mt-1 font-semibold text-white">22 Tahun</p>
-              </div>
-              <div class="rounded-2xl border border-white/10 bg-[#050816]/60 p-4">
-                <p class="text-sm text-[#94a3b8]">Lokasi</p>
-                <p class="mt-1 font-semibold text-white">Bali, Indonesia</p>
-              </div>
-              <div class="rounded-2xl border border-white/10 bg-[#050816]/60 p-4">
-                <p class="text-sm text-[#94a3b8]">Pendidikan</p>
-                <p class="mt-1 font-semibold text-white">S1 Sistem Informasi</p>
-              </div>
-              <div class="rounded-2xl border border-white/10 bg-[#050816]/60 p-4 sm:col-span-2">
-                <p class="text-sm text-[#94a3b8]">Email</p>
-                <p class="mt-1 font-semibold text-white">satriaananda690@gmail.com</p>
-              </div>
+            <p class="eyebrow">01 / PROJECT NOTES</p>
+            <h2 id="projects-title">Di balik<br /><em>sebuah solusi.</em></h2>
+          </div>
+          <div class="section-intro">
+            <p>Catatan konsep yang sudah ada di portofolio. Fokusnya pada masalah dan pendekatan; bukti implementasi serta hasil masih perlu dilengkapi.</p>
+            <span class="status-label">ARSIP KONSEP · BUKAN PRODUK TERUKUR</span>
+          </div>
+        </div>
+        <div class="project-index mono" aria-hidden="true">
+          <span>CATATAN / JENIS</span><span>KONTEKS & TEKNOLOGI</span><span>DOKUMENTASI</span>
+        </div>
+        <!-- PROJECT: analytics — replace marked fields with verified project evidence. -->
+        <article class="project-entry" id="project-analytics" aria-labelledby="analytics-title">
+          <div class="project-identity">
+            <span class="project-id mono">P.01 / UI DESIGN</span>
+            <h3 id="analytics-title">Analytics UI</h3>
+            <span class="status-label">KONSEP DASHBOARD</span>
+            <div class="project-glyph glyph-table" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
             </div>
+          </div>
+          <div class="project-summary">
+            <p>Eksplorasi antarmuka dashboard untuk menyusun data dan statistik agar lebih mudah dibaca.</p>
+            <ul class="tags" aria-label="Teknologi yang tercantum">
+              <li>
+                Figma
+              </li>
+              <li>
+                React
+              </li>
+            </ul>
+            <p class="project-scope">Lingkup yang tercatat: konsep antarmuka. Belum ada dataset atau analisis yang dapat ditinjau.</p>
+          </div>
+          <details class="case-details">
+            <summary>Baca catatan <span aria-hidden="true">↗</span></summary>
+            <dl class="case-fields">
+              <div>
+                <dt>Konteks / masalah</dt>
+                <dd>Informasi pada dashboard perlu disusun dalam antarmuka yang bersih dan mudah dipindai. Kebutuhan pengguna spesifik belum dicantumkan.</dd>
+              </div>
+              <div>
+                <dt>Kontribusi saya</dt>
+                <dd class="fill-in">Belum diisi — jelaskan bagian yang dikerjakan sendiri dan batas peran dalam proyek.</dd>
+              </div>
+              <div>
+                <dt>Hasil & bukti</dt>
+                <dd class="fill-in">Belum diisi — tambahkan desain, dataset jika ada, temuan, dan tautan implementasi yang valid.</dd>
+              </div>
+            </dl>
+          </details>
+        </article>
+        <!-- PROJECT: brand — preserve the concept until actual URLs and outcomes are available. -->
+        <article class="project-entry" id="project-brand" aria-labelledby="brand-title">
+          <div class="project-identity">
+            <span class="project-id mono">P.02 / WEBSITE</span>
+            <h3 id="brand-title">Brand Launch</h3>
+            <span class="status-label">KONSEP LANDING PAGE</span>
+            <div class="project-glyph glyph-layout" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="project-summary">
+            <p>Konsep landing page untuk memperkenalkan identitas dan produk sebuah brand melalui hierarki visual yang jelas.</p>
+            <ul class="tags" aria-label="Teknologi yang tercantum">
+              <li>
+                HTML
+              </li>
+              <li>
+                Tailwind CSS
+              </li>
+            </ul>
+            <p class="project-scope">Lingkup yang tercatat: presentasi brand. Tidak ada klaim kenaikan konversi atau hasil bisnis.</p>
+          </div>
+          <details class="case-details">
+            <summary>Baca catatan <span aria-hidden="true">↗</span></summary>
+            <dl class="case-fields">
+              <div>
+                <dt>Konteks / masalah</dt>
+                <dd>Menyajikan pengenalan produk dan identitas brand dalam sebuah landing page. Nama brand dan kebutuhan riil belum dicantumkan.</dd>
+              </div>
+              <div>
+                <dt>Kontribusi saya</dt>
+                <dd class="fill-in">Belum diisi — tuliskan tanggung jawab desain, pengembangan, atau bagian lain yang benar-benar dikerjakan.</dd>
+              </div>
+              <div>
+                <dt>Hasil & bukti</dt>
+                <dd class="fill-in">Belum diisi — tambahkan tangkapan layar, URL demo, repositori, dan hasil yang dapat diverifikasi.</dd>
+              </div>
+            </dl>
+          </details>
+        </article>
+        <article class="project-entry" id="project-portfolio" aria-labelledby="portfolio-title">
+          <div class="project-identity">
+            <span class="project-id mono">P.03 / WEBSITE</span>
+            <h3 id="portfolio-title">Creative Portfolio</h3>
+            <span class="status-label">KONSEP PERSONAL WEBSITE</span>
+            <div class="project-glyph glyph-type" aria-hidden="true">
+              Aa<span>_</span>
+            </div>
+          </div>
+          <div class="project-summary">
+            <p>Konsep website personal yang menghubungkan profil, cerita, karya, dan kontak dengan navigasi sederhana.</p>
+            <ul class="tags" aria-label="Teknologi yang tercantum">
+              <li>
+                HTML
+              </li>
+              <li>
+                CSS
+              </li>
+              <li>
+                JavaScript
+              </li>
+            </ul>
+            <p class="project-scope">Lingkup yang tercatat: desain dan pengalaman navigasi portofolio personal.</p>
+          </div>
+          <details class="case-details">
+            <summary>Baca catatan <span aria-hidden="true">↗</span></summary>
+            <dl class="case-fields">
+              <div>
+                <dt>Konteks / masalah</dt>
+                <dd>Memberikan tempat yang jelas untuk identitas, karya, dan informasi kontak seseorang.</dd>
+              </div>
+              <div>
+                <dt>Kontribusi saya</dt>
+                <dd class="fill-in">Belum diisi — jelaskan keputusan desain serta komponen yang Anda implementasikan.</dd>
+              </div>
+              <div>
+                <dt>Hasil & bukti</dt>
+                <dd class="fill-in">Belum diisi — tautkan versi yang dapat dilihat, repositori, dan hasil evaluasi jika tersedia.</dd>
+              </div>
+            </dl>
+          </details>
+        </article>
+        <div class="project-footnote">
+          <p>Diagram pada arsip ini bersifat skematis, tanpa metrik atau hasil buatan.</p>
+          <a class="text-link" href="https://github.com/satriAnandaa" target="_blank" rel="noopener noreferrer">Jelajahi GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+        <details class="future-case">
+          <summary><span><span class="mono">NEXT NOTE / TEMPLATE</span><strong>Ruang untuk studi kasus data atau backend</strong></span><span class="details-sign" aria-hidden="true">+</span></summary>
+          <div class="future-content">
+            <p>Belum ada studi kasus data/backend lengkap pada sumber proyek ini. Bagian ini adalah panduan pengisian, bukan proyek yang telah dikerjakan.</p>
+            <dl class="case-fields">
+              <div>
+                <dt>Judul & pertanyaan</dt>
+                <dd class="fill-in">Belum diisi — masalah apa yang ingin Anda jawab atau selesaikan?</dd>
+              </div>
+              <div>
+                <dt>Sumber & peran</dt>
+                <dd class="fill-in">Belum diisi — asal data, izin penggunaan, serta kontribusi Anda.</dd>
+              </div>
+              <div>
+                <dt>Metode & teknologi</dt>
+                <dd class="fill-in">Belum diisi — langkah, query, atau rancangan layanan yang benar-benar digunakan.</dd>
+              </div>
+              <div>
+                <dt>Hasil & keterbatasan</dt>
+                <dd class="fill-in">Belum diisi — temuan, cara memeriksa hasil, keterbatasan, dan tautan bukti.</dd>
+              </div>
+            </dl>
+          </div>
+        </details>
+      </section>
+      <section class="skills-section section" id="skills" aria-labelledby="skills-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">02 / TOOLKIT</p>
+              <h2 id="skills-title">Fondasi dulu.<br /><em>Alat mengikuti.</em></h2>
+            </div>
+            <div class="section-intro">
+              <p>Teknologi yang sudah tercantum dalam portofolio. Tanpa persentase penguasaan; ruang lingkupnya ditunjukkan lewat dokumentasi karya.</p>
+            </div>
+          </div>
+          <div class="toolkit">
+            <article class="toolkit-row">
+              <span class="toolkit-index mono">A /</span>
+              <div>
+                <h3>Data & database</h3>
+                <p>MySQL menjadi titik awal yang relevan untuk arah analisis data. Studi kasus analisis masih perlu didokumentasikan.</p>
+              </div>
+              <ul class="tags">
+                <li>
+                  MySQL
+                </li>
+              </ul>
+              <span class="toolkit-mark mono">STRUCTURE</span>
+            </article>
+            <article class="toolkit-row">
+              <span class="toolkit-index mono">B /</span>
+              <div>
+                <h3>Backend development</h3>
+                <p>Bahasa dan framework backend yang tercantum pada profil sebelumnya.</p>
+              </div>
+              <ul class="tags">
+                <li>
+                  PHP
+                </li>
+                <li>
+                  Laravel
+                </li>
+                <li>
+                  Go
+                </li>
+              </ul>
+              <span class="toolkit-mark mono">LOGIC</span>
+            </article>
+            <article class="toolkit-row">
+              <span class="toolkit-index mono">C /</span>
+              <div>
+                <h3>Antarmuka web</h3>
+                <p>Bekal untuk menyajikan informasi dan menghubungkan antarmuka dengan kebutuhan aplikasi.</p>
+              </div>
+              <ul class="tags">
+                <li>
+                  HTML & CSS
+                </li>
+                <li>
+                  JavaScript
+                </li>
+                <li>
+                  React
+                </li>
+                <li>
+                  Tailwind CSS
+                </li>
+              </ul>
+              <span class="toolkit-mark mono">INTERFACE</span>
+            </article>
+            <article class="toolkit-row">
+              <span class="toolkit-index mono">D /</span>
+              <div>
+                <h3>Desain & pengalaman</h3>
+                <p>Perhatian pada struktur informasi, alur interaksi, dan tampilan lintas perangkat.</p>
+              </div>
+              <ul class="tags">
+                <li>
+                  Figma
+                </li>
+                <li>
+                  Wireframing
+                </li>
+                <li>
+                  Prototyping
+                </li>
+                <li>
+                  Responsive design
+                </li>
+              </ul>
+              <span class="toolkit-mark mono">CLARITY</span>
+            </article>
           </div>
         </div>
       </section>
-
-      <section id="skills" class="fade-up mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div class="mb-10 text-center">
-          <p class="text-sm uppercase tracking-[0.35em] text-[#facc15]">My Skills</p>
-          <h2 class="mt-3 text-3xl font-semibold text-white">Kemampuans yang saya kuasai</h2>
-        </div>
-
-        <div class="grid gap-6 grid-cols-2 lg:grid-cols-3">
-          <article class="skill-card rounded-2xl border border-white/10 bg-[#111827]/90 p-5">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#2563eb]/20 text-[#2563eb]">HTML</div>
-                <h3 class="text-lg font-semibold">HTML</h3>
-              </div>
-              <span class="text-sm text-[#94a3b8]">95%</span>
-            </div>
-            <div class="mt-4 h-2 rounded-full bg-white/10">
-              <div class="h-2 w-[95%] rounded-full bg-gradient-to-r from-[#2563eb] to-[#facc15]"></div>
-            </div>
-          </article>
-
-          <article class="skill-card rounded-2xl border border-white/10 bg-[#111827]/90 p-5">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#2563eb]/20 text-[#2563eb]">GO</div>
-                <h3 class="text-lg font-semibold">GOLANG</h3>
-              </div>
-              <span class="text-sm text-[#94a3b8]">60%</span>
-            </div>
-            <div class="mt-4 h-2 rounded-full bg-white/10">
-              <div class="h-2 w-[60%] rounded-full bg-gradient-to-r from-[#2563eb] to-[#facc15]"></div>
-            </div>
-          </article>
-
-          <article class="skill-card rounded-2xl border border-white/10 bg-[#111827]/90 p-5">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#2563eb]/20 text-[#2563eb]">TW</div>
-                <h3 class="text-lg font-semibold">Tailwind</h3>
-              </div>
-              <span class="text-sm text-[#94a3b8]">92%</span>
-            </div>
-            <div class="mt-4 h-2 rounded-full bg-white/10">
-              <div class="h-2 w-[92%] rounded-full bg-gradient-to-r from-[#2563eb] to-[#facc15]"></div>
-            </div>
-          </article>
-
-          <article class="skill-card rounded-2xl border border-white/10 bg-[#111827]/90 p-5">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#2563eb]/20 text-[#2563eb]">JS</div>
-                <h3 class="text-lg font-semibold">JavaScript</h3>
-              </div>
-              <span class="text-sm text-[#94a3b8]">85%</span>
-            </div>
-            <div class="mt-4 h-2 rounded-full bg-white/10">
-              <div class="h-2 w-[85%] rounded-full bg-gradient-to-r from-[#2563eb] to-[#facc15]"></div>
-            </div>
-          </article>
-
-          <article class="skill-card rounded-2xl border border-white/10 bg-[#111827]/90 p-5">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#2563eb]/20 text-[#2563eb]">PHP</div>
-                <h3 class="text-lg font-semibold">PHP</h3>
-              </div>
-              <span class="text-sm text-[#94a3b8]">80%</span>
-            </div>
-            <div class="mt-4 h-2 rounded-full bg-white/10">
-              <div class="h-2 w-[80%] rounded-full bg-gradient-to-r from-[#2563eb] to-[#facc15]"></div>
-            </div>
-          </article>
-
-          <article class="skill-card rounded-2xl border border-white/10 bg-[#111827]/90 p-5">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#2563eb]/20 text-[#2563eb]">LA</div>
-                <h3 class="text-lg font-semibold">Laravel</h3>
-              </div>
-              <span class="text-sm text-[#94a3b8]">82%</span>
-            </div>
-            <div class="mt-4 h-2 rounded-full bg-white/10">
-              <div class="h-2 w-[82%] rounded-full bg-gradient-to-r from-[#2563eb] to-[#facc15]"></div>
-            </div>
-          </article>
-
-          <article class="skill-card rounded-2xl border border-white/10 bg-[#111827]/90 p-5">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#2563eb]/20 text-[#2563eb]">RE</div>
-                <h3 class="text-lg font-semibold">React</h3>
-              </div>
-              <span class="text-sm text-[#94a3b8]">78%</span>
-            </div>
-            <div class="mt-4 h-2 rounded-full bg-white/10">
-              <div class="h-2 w-[78%] rounded-full bg-gradient-to-r from-[#2563eb] to-[#facc15]"></div>
-            </div>
-          </article>
-
-          <article class="skill-card rounded-2xl border border-white/10 bg-[#111827]/90 p-5">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#2563eb]/20 text-[#2563eb]">DB</div>
-                <h3 class="text-lg font-semibold">MySQL</h3>
-              </div>
-              <span class="text-sm text-[#94a3b8]">84%</span>
-            </div>
-            <div class="mt-4 h-2 rounded-full bg-white/10">
-              <div class="h-2 w-[84%] rounded-full bg-gradient-to-r from-[#2563eb] to-[#facc15]"></div>
-            </div>
-          </article>
-
-          <article class="skill-card rounded-2xl border border-white/10 bg-[#111827]/90 p-5">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#2563eb]/20 text-[#2563eb]">FI</div>
-                <h3 class="text-lg font-semibold">Figma</h3>
-              </div>
-              <span class="text-sm text-[#94a3b8]">88%</span>
-            </div>
-            <div class="mt-4 h-2 rounded-full bg-white/10">
-              <div class="h-2 w-[88%] rounded-full bg-gradient-to-r from-[#2563eb] to-[#facc15]"></div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="projects" class="fade-up mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+      <section class="section container process-section" id="process" aria-labelledby="process-title">
+        <div class="section-heading">
           <div>
-            <p class="text-sm uppercase tracking-[0.35em] text-[#facc15]">Projects</p>
-            <h2 class="mt-3 text-3xl font-semibold text-white">Beberapa karya yang sudah saya bangun</h2>
+            <p class="eyebrow">03 / WORKING FRAMEWORK</p>
+            <h2 id="process-title">Pertanyaan sebelum query.<br /><em>Kejelasan sebelum kode.</em></h2>
+          </div>
+          <div class="section-intro">
+            <p>Kerangka kerja yang ingin saya terapkan dan dokumentasikan pada studi kasus data dan backend berikutnya.</p>
           </div>
         </div>
-
-        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          <article class="project-card overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#111827]/90">
-            <div class="relative">
-              <img src="assets/images/project1.png" alt="Project 1" class="h-48 w-full object-cover" />
-              <div class="project-overlay absolute inset-0 flex items-end bg-gradient-to-t from-[#050816] via-[#050816]/70 to-transparent p-5">
+        <ol class="process-list">
+          <li>
+            <span class="mono">01 / DEFINE</span>
+            <h3>Pahami pertanyaannya.</h3>
+            <p>Tentukan kebutuhan, pengguna, dan ruang lingkup sebelum memilih alat.</p>
+          </li>
+          <li>
+            <span class="mono">02 / INSPECT</span>
+            <h3>Kenali strukturnya.</h3>
+            <p>Petakan sumber, hubungan informasi, asumsi, serta data yang masih kurang.</p>
+          </li>
+          <li>
+            <span class="mono">03 / VERIFY</span>
+            <h3>Periksa logikanya.</h3>
+            <p>Bangun solusi bertahap dan cocokkan hasilnya dengan pertanyaan awal.</p>
+          </li>
+          <li>
+            <span class="mono">04 / EXPLAIN</span>
+            <h3>Ceritakan hasilnya.</h3>
+            <p>Dokumentasikan keputusan, bukti, dan keterbatasan dengan bahasa yang jelas.</p>
+          </li>
+        </ol>
+      </section>
+      <section class="section about-section" id="about" aria-labelledby="about-title">
+        <div class="container">
+          <div class="about-grid">
+            <div class="profile-visual">
+              <div class="profile-image">
+                <img src="assets/images/about.png" alt="Potret Satria Ananda mengenakan kemeja dan jas biru" width="454" height="549" loading="lazy" decoding="async" />
+              </div>
+              <p class="mono">SATRIA ANANDA / BALI, ID</p>
+            </div>
+            <div class="about-copy">
+              <p class="eyebrow">04 / THE PERSON BEHIND THE NOTES</p>
+              <h2 id="about-title">Rasa ingin tahu,<br /><em>arah yang terus tumbuh.</em></h2>
+              <p>Saya Satria Ananda, pengembang web dengan latar belakang Sistem Informasi, berbasis di Bali. Saya menyukai desain yang jelas, pengalaman pengguna yang nyaman, dan kode yang mudah dikembangkan.</p>
+              <p>Saat ini saya mengarahkan pengembangan karier ke Data Analyst dan Backend Developer. Pengalaman web dan desain tetap menjadi bekal untuk memahami bagaimana informasi disusun, diproses, dan disampaikan.</p>
+              <dl class="profile-facts">
                 <div>
-                  <p class="text-sm text-[#facc15]">Landing Page</p>
-                  <h3 class="text-xl font-semibold text-white">Brand Launch</h3>
+                  <dt>Lokasi</dt>
+                  <dd>Bali, Indonesia</dd>
                 </div>
-              </div>
-            </div>
-            <div class="p-5">
-              <p class="text-sm leading-7 text-[#94a3b8]">Website modern untuk memperkenalkan produk dengan visual yang tajam dan konversi tinggi.</p>
-              <div class="mt-4 flex flex-wrap gap-2">
-                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-[#94a3b8]">HTML</span>
-                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-[#94a3b8]">Tailwind</span>
-              </div>
-              <div class="mt-5 flex gap-3">
-                <a href="#" class="rounded-full bg-[#2563eb] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#3b82f6]">Live Demo</a>
-                <a href="#" class="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-[#2563eb] hover:text-[#2563eb]">Github</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#111827]/90">
-            <div class="relative">
-              <img src="assets/images/project2.png" alt="Project 2" class="h-48 w-full object-cover" />
-              <div class="project-overlay absolute inset-0 flex items-end bg-gradient-to-t from-[#050816] via-[#050816]/70 to-transparent p-5">
                 <div>
-                  <p class="text-sm text-[#facc15]">Dashboard</p>
-                  <h3 class="text-xl font-semibold text-white">Analytics UI</h3>
+                  <dt>Pendidikan</dt>
+                  <dd>S1 Sistem Informasi</dd>
                 </div>
-              </div>
-            </div>
-            <div class="p-5">
-              <p class="text-sm leading-7 text-[#94a3b8]">Antarmuka dashboard yang bersih untuk memantau data, statistik, dan performa bisnis.</p>
-              <div class="mt-4 flex flex-wrap gap-2">
-                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-[#94a3b8]">React</span>
-                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-[#94a3b8]">Chart</span>
-              </div>
-              <div class="mt-5 flex gap-3">
-                <a href="#" class="rounded-full bg-[#2563eb] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#3b82f6]">Live Demo</a>
-                <a href="#" class="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-[#2563eb] hover:text-[#2563eb]">Github</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#111827]/90">
-            <div class="relative">
-              <img src="assets/images/project3.png" alt="Project 3" class="h-48 w-full object-cover" />
-              <div class="project-overlay absolute inset-0 flex items-end bg-gradient-to-t from-[#050816] via-[#050816]/70 to-transparent p-5">
                 <div>
-                  <p class="text-sm text-[#facc15]">Portfolio</p>
-                  <h3 class="text-xl font-semibold text-white">Creative Portfolio</h3>
+                  <dt>Arah karier</dt>
+                  <dd>Data Analyst / Backend Developer</dd>
                 </div>
-              </div>
+              </dl>
+              <a class="text-link" href="resume.html">Buka profil & CV <span aria-hidden="true">↗</span></a>
             </div>
-            <div class="p-5">
-              <p class="text-sm leading-7 text-[#94a3b8]">Portfolio personal dengan nuansa premium, minimalis, dan pengalaman navigasi yang halus.</p>
-              <div class="mt-4 flex flex-wrap gap-2">
-                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-[#94a3b8]">HTML</span>
-                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-[#94a3b8]">CSS</span>
-              </div>
-              <div class="mt-5 flex gap-3">
-                <a href="#" class="rounded-full bg-[#2563eb] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#3b82f6]">Live Demo</a>
-                <a href="#" class="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-[#2563eb] hover:text-[#2563eb]">Github</a>
-              </div>
+          </div>
+          <div class="experience-block" id="experience">
+            <div>
+              <p class="eyebrow">FIELD NOTES / PENGALAMAN</p>
+              <h3>Perjalanan yang<br />membentuk fondasi.</h3>
+              <p>Pengalaman dari profil sebelumnya dipertahankan. Detail institusi dan kontribusi spesifik belum tersedia.</p>
             </div>
-          </article>
+            <ol class="experience-list">
+              <li>
+                <span class="mono">2026 / INTERNSHIP</span>
+                <h4>Developer Intern</h4>
+                <p>Proyek web dengan fokus pada pengalaman pengguna, integrasi UI, dan optimasi performa.</p>
+                <p class="fill-in">Perlu dilengkapi: institusi, periode, dan kontribusi spesifik.</p>
+              </li>
+              <li>
+                <span class="mono">2025 / FREELANCE</span>
+                <h4>Freelance Web Developer</h4>
+                <p>Membangun landing page, portofolio, dan antarmuka web dengan pendekatan yang modern dan responsif.</p>
+                <p class="fill-in">Perlu dilengkapi: ruang lingkup dan bukti karya yang boleh dipublikasikan.</p>
+              </li>
+              <li>
+                <span class="mono">2024 / PROYEK KAMPUS</span>
+                <h4>UI/UX & Website Project</h4>
+                <p>Proyek kampus yang berfokus pada desain, struktur informasi, dan implementasi frontend.</p>
+                <p class="fill-in">Perlu dilengkapi: nama proyek, institusi, dan peran.</p>
+              </li>
+            </ol>
+          </div>
+          <div class="education-note">
+            <span class="mono">PENDIDIKAN /</span><strong>S1 Sistem Informasi</strong><span class="fill-in">Institusi dan periode belum dicantumkan.</span>
+          </div>
+          <details class="personal-note">
+            <summary>Di luar layar <span aria-hidden="true">+</span></summary>
+            <figure>
+              <img src="assets/images/hero.png" alt="Satria di jalur alam dekat air terjun" width="1200" height="1600" loading="lazy" decoding="async" />
+              <figcaption>Catatan visual dari Bali — foto pribadi dari aset portofolio.</figcaption>
+            </figure>
+          </details>
         </div>
       </section>
-
-      <section id="experience" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div class="rounded-[2rem] border border-white/10 bg-[#111827]/80 p-8 shadow-[0_20px_80px_rgba(0,0,0,0.2)]">
-          <div class="timeline-header mb-10 text-center" data-timeline-title>
-            <p class="text-sm uppercase tracking-[0.35em] text-[#facc15]">Experience</p>
-            <h2 class="mt-3 text-3xl font-semibold text-white">Perjalanan dan pengalaman saya</h2>
+      <section class="section container contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-grid">
+          <div>
+            <p class="eyebrow">05 / LET’S CONNECT</p>
+            <h2 id="contact-title">Ada pertanyaan<br /><em>yang menarik?</em></h2>
+            <p class="contact-intro">Untuk kesempatan kerja, kolaborasi, atau bertukar ide tentang data dan pengembangan web, mari mulai percakapan.</p>
+            <a class="contact-email" href="mailto:satriaananda690@gmail.com">satriaananda690@gmail.com <span aria-hidden="true">↗</span></a>
+            <div class="contact-links">
+              <a href="https://github.com/satriAnandaa" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/satria-ananda-966361317" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://wa.me/6282147020593" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="https://www.instagram.com/suchria_/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+            </div>
+            <a class="cv-link mono" href="resume.html">CV / BACA ATAU CETAK SEBAGAI PDF ↗</a>
           </div>
-
-          <div class="relative mx-auto max-w-4xl">
-            <div class="timeline-line" data-timeline-line></div>
-
-            <div class="space-y-8 md:space-y-10">
-              <div class="timeline-item relative pl-8 md:flex md:justify-start md:pl-0" data-timeline-item data-timeline-item-index="0" data-side="left">
-                <div class="timeline-dot bg-[#2563eb]" data-timeline-dot data-timeline-dot-index="0"></div>
-                <div class="md:w-[calc(50%-1.25rem)] md:pr-8">
-                  <div class="timeline-card rounded-2xl border border-white/10 bg-[#050816]/70 p-5 shadow-[0_15px_40px_rgba(0,0,0,0.2)]">
-                    <p class="text-sm text-[#facc15]">2026 • Internship</p>
-                    <h3 class="mt-2 text-xl font-semibold text-white">Developer Intern</h3>
-                    <p class="mt-3 text-sm leading-7 text-[#94a3b8]">Bekerja pada proyek web dengan fokus pada pengalaman pengguna, integrasi UI, dan optimasi performa.</p>
-                  </div>
-                </div>
+          <form id="contact-form" action="mailto:satriaananda690@gmail.com" method="post" enctype="text/plain">
+            <p class="mono form-heading">NEW CONVERSATION / DRAF EMAIL</p>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Nama <span aria-hidden="true">*</span></label>
+                <input id="name" name="name" autocomplete="name" placeholder="Nama Anda" required maxlength="100" />
               </div>
-
-              <div class="timeline-item relative pl-8 md:flex md:justify-end md:pl-0" data-timeline-item data-timeline-item-index="1" data-side="right">
-                <div class="timeline-dot bg-[#facc15]" data-timeline-dot data-timeline-dot-index="1"></div>
-                <div class="md:w-[calc(50%-1.25rem)] md:pl-8">
-                  <div class="timeline-card rounded-2xl border border-white/10 bg-[#050816]/70 p-5 shadow-[0_15px_40px_rgba(0,0,0,0.2)]">
-                    <p class="text-sm text-[#facc15]">2025 • Freelance</p>
-                    <h3 class="mt-2 text-xl font-semibold text-white">Freelance Web Developer</h3>
-                    <p class="mt-3 text-sm leading-7 text-[#94a3b8]">Membangun landing page, portfolio, dan antarmuka sederhana untuk berbagai klien dengan pendekatan yang modern.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="timeline-item relative pl-8 md:flex md:justify-start md:pl-0" data-timeline-item data-timeline-item-index="2" data-side="left">
-                <div class="timeline-dot bg-[#2563eb]" data-timeline-dot data-timeline-dot-index="2"></div>
-                <div class="md:w-[calc(50%-1.25rem)] md:pr-8">
-                  <div class="timeline-card rounded-2xl border border-white/10 bg-[#050816]/70 p-5 shadow-[0_15px_40px_rgba(0,0,0,0.2)]">
-                    <p class="text-sm text-[#facc15]">2024 • University Project</p>
-                    <h3 class="mt-2 text-xl font-semibold text-white">UI/UX & Website Project</h3>
-                    <p class="mt-3 text-sm leading-7 text-[#94a3b8]">Mengembangkan proyek kampus dengan fokus pada desain, struktur informasi, dan implementasi frontend yang rapi.</p>
-                  </div>
-                </div>
+              <div class="form-field">
+                <label for="email">Email <span aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="nama@email.com" required maxlength="254" />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="fade-up mx-auto max-w-7xl px-6 pb-20 pt-8 lg:px-8">
-        <div class="rounded-[2rem] border border-[#2563eb]/20 bg-[#111827] p-8 shadow-[0_20px_80px_rgba(37,99,235,0.12)]">
-          <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-            <div class="fade-left rounded-[1.5rem] border border-white/10 bg-[#050816]/60 p-6">
-              <p class="text-sm uppercase tracking-[0.35em] text-[#facc15]">Contact</p>
-              <h2 class="mt-3 text-3xl font-semibold text-white">Mari berdiskusi tentang ide Anda</h2>
-              <p class="mt-4 text-[#94a3b8]">Saya terbuka untuk proyek freelance, kolaborasi, maupun kesempatan kerja yang menarik.</p>
-
-              <div class="mt-6 space-y-4">
-                <a href="mailto:satriaananda690@gmail.com" class="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-[#94a3b8] transition hover:border-[#2563eb] hover:text-white">
-                  <span class="text-[#facc15]">✉</span>
-                  <span>satriaananda690@gmail.com</span>
-                </a>
-                <a href="https://wa.me/6282147020593" target="_blank" rel="noreferrer" class="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-[#94a3b8] transition hover:border-[#2563eb] hover:text-white">
-                  <span class="text-[#facc15]">☏</span>
-                  <span>+62 821-4702-0593</span>
-                </a>
-                <a href="https://www.linkedin.com/in/satria-ananda-966361317" target="_blank" rel="noreferrer" class="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-[#94a3b8] transition hover:border-[#2563eb] hover:text-white">
-                  <span class="text-[#facc15]">in</span>
-                  <span>linkedin.com/in/satria</span>
-                </a>
-                <a href="https://github.com/satriAnandaa" target="_blank" rel="noreferrer" class="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-[#94a3b8] transition hover:border-[#2563eb] hover:text-white">
-                  <span class="text-[#facc15]">GH</span>
-                  <span>github.com/satria</span>
-                </a>
-              </div>
+            <div class="form-field">
+              <label for="subject">Topik <span aria-hidden="true">*</span></label>
+              <select id="subject" name="subject" required>
+                <option value="">Pilih topik percakapan</option>
+                <option>Kesempatan kerja — Data Analyst</option>
+                <option>Kesempatan kerja — Backend Developer</option>
+                <option>Kolaborasi proyek</option>
+                <option>Pengembangan web</option>
+                <option>Lainnya</option>
+              </select>
             </div>
-
-            <form class="fade-right rounded-[1.5rem] border border-white/10 bg-[#050816]/60 p-6">
-              <div class="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label class="mb-2 block text-sm text-[#94a3b8]" for="name">Name</label>
-                  <input id="name" type="text" class="contact-input w-full rounded-2xl border border-white/10 bg-[#111827] px-4 py-3 text-white outline-none" placeholder="Your name" />
-                </div>
-                <div>
-                  <label class="mb-2 block text-sm text-[#94a3b8]" for="email">Email</label>
-                  <input id="email" type="email" class="contact-input w-full rounded-2xl border border-white/10 bg-[#111827] px-4 py-3 text-white outline-none" placeholder="Your email" />
-                </div>
-              </div>
-              <div class="mt-4">
-                <label class="mb-2 block text-sm text-[#94a3b8]" for="subject">Subject</label>
-                <input id="subject" type="text" class="contact-input w-full rounded-2xl border border-white/10 bg-[#111827] px-4 py-3 text-white outline-none" placeholder="Project idea" />
-              </div>
-              <div class="mt-4">
-                <label class="mb-2 block text-sm text-[#94a3b8]" for="message">Message</label>
-                <textarea id="message" rows="5" class="contact-input w-full rounded-2xl border border-white/10 bg-[#111827] px-4 py-3 text-white outline-none" placeholder="Tell me about your project..."></textarea>
-              </div>
-              <button type="submit" class="mt-6 rounded-full bg-[#2563eb] px-6 py-3 font-semibold text-white transition duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#3b82f6]">Send Message</button>
-            </form>
-          </div>
+            <div class="form-field">
+              <label for="message">Pesan <span aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" rows="4" placeholder="Ceritakan konteks dan hal yang ingin didiskusikan…" required minlength="10" maxlength="2000"></textarea>
+            </div>
+            <button class="button" type="submit">Siapkan draf email <span aria-hidden="true">↗</span></button>
+            <p class="form-hint">Membuka aplikasi email dengan draf pesan. Pesan belum dikirim sampai Anda mengirimkannya dari aplikasi tersebut.</p>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </section>
     </main>
-
-    <footer class="border-t border-[#1f2937] px-6 py-8">
-      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-sm text-[#94a3b8] md:flex-row lg:px-8">
-        <p>© 2026 Satria. Made with <span class="text-[#facc15]">❤</span> using HTML + Tailwind CSS</p>
-        <div class="flex gap-3">
-          <a href="https://github.com" target="_blank" rel="noreferrer" class="social-icon h-10 w-10" aria-label="Github">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.42 7.86 10.95.58.11.79-.25.79-.56v-2.02c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.53-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 2.87-.39c.97 0 1.95.13 2.87.39 2.19-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.73.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.26 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.2.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="social-icon h-10 w-10" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.94 8.5A1.56 1.56 0 1 0 6.94 5.38a1.56 1.56 0 0 0 0 3.12ZM5.5 9.75h2.88V18H5.5zM10.3 9.75h2.76v1.12h.04c.38-.72 1.32-1.48 2.72-1.48 2.91 0 3.45 1.91 3.45 4.4V18H16.9v-7.55c0-1.8-.03-4.11-2.5-4.11-2.5 0-2.88 1.95-2.88 3.96V18H10.3z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/suchria_/" target="_blank" rel="noreferrer" class="social-icon h-10 w-10" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Zm0 2A2.5 2.5 0 0 0 5 7.5v9A2.5 2.5 0 0 0 7.5 19h9a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 16.5 5h-9Zm4.5 2.25a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm5.25-.75a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>
-          </a>
-        </div>
-      </div>
+    <footer class="site-footer container">
+      <p class="mono">© <span id="year">2026</span> SATRIA ANANDA</p>
+      <p class="mono">BUILT WITH CLARITY / HTML · CSS · JS</p>
+      <a href="#home" class="mono">KEMBALI KE AWAL ↑</a>
     </footer>
-
-    <button id="scroll-top" class="scroll-to-top fixed bottom-6 right-6 hidden rounded-full border border-white/10 bg-[#111827]/90 p-3 text-white shadow-[0_12px_30px_rgba(0,0,0,0.25)] transition duration-300 hover:border-[#2563eb] hover:text-[#2563eb]" aria-label="Kembali ke atas">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-      </svg>
-    </button>
-
-    <script src="js/main.js"></script>
   </body>
 </html>

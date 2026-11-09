@@ -1,131 +1,164 @@
-// Mobile navigation toggle
-const menuBtn = document.getElementById('menu-btn');
-const menu = document.getElementById('menu');
-const scrollTopBtn = document.getElementById('scroll-top');
-const parallaxItems = document.querySelectorAll('[data-parallax]');
+'use strict';
 
-if (menuBtn && menu) {
-  menuBtn.addEventListener('click', () => {
-    const isHidden = menu.classList.contains('hidden');
-    menu.classList.toggle('hidden', !isHidden);
-    menu.classList.toggle('flex', isHidden);
-    menu.classList.toggle('flex-col', isHidden);
-    menuBtn.setAttribute('aria-expanded', String(isHidden));
-  });
+/* Enhancements only: navigation, project notes, and content also work without JS. */
+function initTheme() {
+  const button = document.getElementById('theme-toggle');
+  const system = window.matchMedia('(prefers-color-scheme: light)');
+  let preference = null;
 
-  menu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth < 1024) {
-        menu.classList.add('hidden');
-        menu.classList.remove('flex', 'flex-col');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-}
+  try {
+    const saved = localStorage.getItem('satria-theme');
+    if (saved === 'light' || saved === 'dark') preference = saved;
+  } catch {
+    // Storage may be blocked; theme switching still works for this visit.
+  }
 
-// Scroll-to-top button visibility
-if (scrollTopBtn) {
-  const toggleScrollTop = () => {
-    scrollTopBtn.classList.toggle('hidden', window.scrollY < 360);
-  };
-
-  toggleScrollTop();
-  window.addEventListener('scroll', toggleScrollTop, { passive: true });
-
-  scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
-
-// Light parallax effect for hero image and orbs
-const updateParallax = () => {
-  const offset = window.scrollY * 0.08;
-
-  parallaxItems.forEach((item, index) => {
-    const speed = 0.04 + index * 0.02;
-    item.style.transform = `translate3d(0, ${offset * speed}px, 0)`;
-  });
-};
-
-window.addEventListener('scroll', updateParallax, { passive: true });
-window.addEventListener('load', updateParallax);
-
-// Hero typewriter loop animation
-const professions = [
-  'Web Developer',
-  'UI/UX Designer',
-  'Backend Dev'
-];
-const typingText = document.getElementById('typing-text');
-
-if (typingText) {
-  let professionIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-
-  const typeLoop = () => {
-    const currentProfession = professions[professionIndex];
-
-    if (!isDeleting) {
-      typingText.textContent = currentProfession.slice(0, charIndex + 1);
-      charIndex += 1;
-
-      if (charIndex === currentProfession.length) {
-        isDeleting = true;
-        setTimeout(typeLoop, 2000);
-        return;
-      }
-    } else {
-      typingText.textContent = currentProfession.slice(0, charIndex - 1);
-      charIndex -= 1;
-
-      if (charIndex === 0) {
-        isDeleting = false;
-        professionIndex = (professionIndex + 1) % professions.length;
-        setTimeout(typeLoop, 500);
-        return;
-      }
+  const apply = (theme) => {
+    const light = theme === 'light';
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', light ? '#f2f0e8' : '#111815');
+    if (button) {
+      button.setAttribute('aria-label', light ? 'Aktifkan tema gelap' : 'Aktifkan tema terang');
+      button.firstElementChild.textContent = light ? '☾' : '☼';
     }
-
-    const speed = isDeleting ? 60 : 110;
-    setTimeout(typeLoop, speed);
   };
 
-  window.addEventListener('load', () => {
-    typingText.textContent = '';
-    typeLoop();
+  apply(preference || (system.matches ? 'light' : 'dark'));
+  if (button) {
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      preference = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+      apply(preference);
+      try { localStorage.setItem('satria-theme', preference); } catch { /* Optional persistence. */ }
+    });
+  }
+  system.addEventListener('change', (event) => {
+    if (!preference) apply(event.matches ? 'light' : 'dark');
   });
 }
 
-// Experience timeline reveal on scroll
-const timelineTitle = document.querySelector('[data-timeline-title]');
-const timelineLine = document.querySelector('[data-timeline-line]');
-const timelineItems = Array.from(document.querySelectorAll('[data-timeline-item]'));
-const timelineDots = Array.from(document.querySelectorAll('[data-timeline-dot]'));
+function initNavigation() {
+  const navigation = document.querySelector('.navigation');
+  const button = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu');
+  if (!navigation || !button || !menu) return;
 
-if (timelineTitle && timelineLine && timelineItems.length) {
-  const revealOptions = {
-    threshold: 0.2,
-    rootMargin: '0px 0px -8% 0px'
+  const desktop = window.matchMedia('(min-width: 821px)');
+  const closeMenu = (returnFocus = false) => {
+    if (returnFocus) button.focus();
+    menu.classList.remove('is-open');
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-label', 'Buka navigasi');
+    button.lastElementChild.textContent = '+';
   };
 
-  const timelineObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      }
-
-      const target = entry.target;
-      const delay = Number(target.dataset.timelineItemIndex || target.dataset.timelineDotIndex || 0) * 180 + 120;
-
-      target.style.setProperty('--reveal-delay', `${delay}ms`);
-      target.classList.add('is-visible');
-      observer.unobserve(target);
-    });
-  }, revealOptions);
-
-  [timelineTitle, timelineLine, ...timelineDots, ...timelineItems].forEach((element) => {
-    timelineObserver.observe(element);
+  navigation.classList.add('is-enhanced');
+  button.hidden = false;
+  button.addEventListener('click', (event) => {
+    if (button.getAttribute('aria-expanded') === 'true') {
+      closeMenu();
+      return;
+    }
+    menu.classList.add('is-open');
+    button.setAttribute('aria-expanded', 'true');
+    button.setAttribute('aria-label', 'Tutup navigasi');
+    button.lastElementChild.textContent = '−';
+    // The navigation links precede this control in the document.
+    // Move keyboard users directly into its links when opening on mobile.
+    if (event.detail === 0) menu.querySelector('a')?.focus();
   });
+  menu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => closeMenu());
+  });
+  document.addEventListener('click', (event) => {
+    if (!navigation.contains(event.target)) closeMenu();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') closeMenu(true);
+  });
+  navigation.addEventListener('focusout', () => {
+    requestAnimationFrame(() => {
+      if (!navigation.contains(document.activeElement)) closeMenu();
+    });
+  });
+  desktop.addEventListener('change', () => {
+    closeMenu(!desktop.matches && menu.contains(document.activeElement));
+  });
+
+  const links = [...menu.querySelectorAll('a[href^="#"]')];
+  const sections = links.map((link) => document.querySelector(link.hash)).filter(Boolean);
+  let scheduled = false;
+  const updateCurrentSection = () => {
+    let active = null;
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top <= 160) active = section.id;
+    }
+    links.forEach((link) => {
+      if (link.hash === '#' + active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+    scheduled = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!scheduled) {
+      scheduled = true;
+      requestAnimationFrame(updateCurrentSection);
+    }
+  }, { passive: true });
+  window.addEventListener('resize', updateCurrentSection);
+  window.addEventListener('load', updateCurrentSection);
+  updateCurrentSection();
+}
+
+function initContactForm() {
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  if (!form || !status) return;
+
+  form.querySelectorAll('input, textarea').forEach((field) => {
+    field.addEventListener('input', () => {
+      field.setCustomValidity('');
+      status.replaceChildren();
+    });
+  });
+  form.querySelector('select')?.addEventListener('change', () => status.replaceChildren());
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const name = form.elements.namedItem('name');
+    const message = form.elements.namedItem('message');
+    name.setCustomValidity(name.value.trim() ? '' : 'Masukkan nama Anda, bukan hanya spasi.');
+    message.setCustomValidity(message.value.trim().length >= 10 ? '' : 'Tuliskan pesan minimal 10 karakter.');
+    if (!form.reportValidity()) return;
+
+    const data = new FormData(form);
+    const subject = String(data.get('subject')) + ' — ' + name.value.trim();
+    const body = [
+      'Halo Satria,', '', message.value.trim(), '',
+      'Salam,', name.value.trim(), String(data.get('email')).trim()
+    ].join('\r\n');
+    const mailto = form.action + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    const fallback = document.createElement('a');
+    fallback.href = mailto;
+    fallback.textContent = 'buka draf kembali';
+    status.replaceChildren(
+      document.createTextNode('Draf siap. Jika aplikasi email belum terbuka, '),
+      fallback,
+      document.createTextNode('. Pesan belum terkirim. Anda juga dapat memakai kontak langsung di halaman ini.')
+    );
+    window.location.href = mailto;
+  });
+}
+
+initTheme();
+initNavigation();
+initContactForm();
+
+const year = document.getElementById('year');
+if (year) year.textContent = String(new Date().getFullYear());
+
+const printButton = document.getElementById('print-cv');
+if (printButton) {
+  printButton.hidden = false;
+  printButton.addEventListener('click', () => window.print());
 }
