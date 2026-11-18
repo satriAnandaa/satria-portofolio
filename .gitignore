@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.env
+.env.*
+!.env.example
+!.env.production.example
+.data/
+.migration-backup/
+.design-backup/
+.tools/
+uploads/
+*.tsbuildinfo
+next-env.d.ts
+playwright-report/
+test-results/

@@ -1,57 +1,112 @@
-# Satria Ananda — Data Lab Editorial
+# Satria Data Lab — Next.js + Tailwind + Payload
 
-Portofolio statis berbahasa Indonesia dengan HTML, CSS, dan JavaScript murni. Tidak membutuhkan build, paket, CDN, font eksternal, maupun library visualisasi.
+Portofolio Data Lab memakai Next.js App Router, TypeScript, Tailwind CSS, dan Payload CMS. Desain memakai hitam–lime, tipografi condensed, garis kontur, dan kartu proyek visual. Konten disimpan di PostgreSQL. Beranda dan CV memakai sumber data yang sama. Produksi disiapkan untuk Vercel, Supabase PostgreSQL, dan Supabase Storage.
 
-## Menjalankan
+## Pembaruan desain
 
-Buka `index.html` di browser atau gunakan Live Server. Server lokal opsional:
+Halaman publik dan admin Content Studio memakai identitas visual yang selaras. Tema terang/gelap, navigasi mobile, ilustrasi konsep, dan preferensi reduced motion didukung. Font Oswald tersedia lokal dengan lisensi SIL OFL di public/fonts/Oswald-OFL.txt. Kontur dan ilustrasi dibuat sebagai aset kode lokal.
+
+Layanan, penghargaan, testimoni, paket harga, dan blog tersedia sebagai koleksi kosong di admin. Bagian tersebut tampil setelah konten dipublikasikan dan bagiannya diaktifkan. Alur pengisian dijelaskan di ADMIN_GUIDE.md. Migrasi reference_design menambahkan tabel dan pengaturan tanpa menghapus konten lama.
+
+## Pertama kali menjalankan
+
+Runtime yang diperlukan tercantum di .nvmrc dan engine package.json. Proyek juga memasang Node lokal sebagai devDependency; perintah npm run memakai runtime tersebut setelah instalasi. Instalasi Node global tidak diubah.
 
 ```sh
-python -m http.server 5500 --bind 127.0.0.1
+npm ci
+npm run setup:local
 ```
 
-Buka `http://127.0.0.1:5500`. CV berada di `resume.html`; gunakan tombol cetak untuk menyimpan PDF melalui browser.
+Terminal pertama:
+
+```sh
+npm run db:local
+```
+
+Terminal kedua:
+
+```sh
+npm run db:migrate
+npm run seed
+npm run admin:create
+npm run dev
+```
+
+Buka http://localhost:3000, admin http://localhost:3000/admin, CV http://localhost:3000/cv.
+
+- setup:local membuat .env dengan rahasia acak bila belum ada; tidak menimpa konfigurasi lama.
+- PostgreSQL lokal persisten di .data/postgres, hanya mendengarkan loopback. Tidak membutuhkan Docker.
+- Schema dilacak dalam src/migrations; DATABASE_PUSH=false adalah pengaturan normal.
+- Seed mengisi entri awal yang belum ada tanpa menimpa edit admin.
+- Akun pemilik dibuat melalui terminal dengan input password tersembunyi. Tidak ada default password atau pendaftaran publik.
+- Pada sandbox Windows, proses Node/PostgreSQL mungkin memerlukan izin eksekusi di luar sandbox editor.
+
+## Penggunaan rutin
+
+Nyalakan npm run db:local, lalu npm run dev di terminal lain. Untuk server produksi lokal:
+
+```sh
+npm run build
+npm start
+```
+
+Database dan upload tidak masuk Git. Ctrl+C pada terminal database menghentikannya tanpa menghapus data.
 
 ## Struktur
 
-- `index.html`: halaman editorial, catatan proyek, toolkit, kerangka proses, profil, pengalaman, pendidikan, dan kontak.
-- `css/style.css`: token dua tema, layout responsif, komponen bersama, dan gaya cetak CV.
-- `js/main.js`: tema tersimpan, menu seluler, navigasi bagian aktif, validasi/draf email, dan tombol cetak CV.
-- `resume.html`: CV dengan informasi yang konsisten dengan halaman utama.
-- `CONTENT_GUIDE.md`: daftar informasi yang perlu dilengkapi dan lokasi pengeditan.
-- `assets/favicon.svg`: monogram lokal.
-- `assets/images/about.png`: foto profil kecil; `hero.png`: foto pribadi dalam catatan “Di luar layar”.
+- src/app/(frontend): halaman publik, CV, detail proyek, preview, dan gaya frontend.
+- src/app/(payload): admin dan API CMS; gaya admin terpisah dari frontend.
+- src/components: komponen layout, bagian website, formulir, tema, dan dashboard.
+- src/collections dan src/globals: schema, versi/draft, akses, dan validasi.
+- src/lib/content.ts: pembacaan konten di server dengan access control.
+- src/data/initial-content.json: data seed hasil ekstraksi website lama, bukan fallback runtime.
+- src/scripts: seed, pembuatan akun, dan pemulihan akses.
+- src/migrations: migrasi PostgreSQL untuk schema portfolio.
+- public/assets: aset lokal yang digunakan aplikasi.
+- tests: unit test validasi dan integrasi HTTP.
+- ADMIN_GUIDE.md: pengelolaan konten.
+- DEPLOYMENT.md: environment, Vercel/Supabase, backup, dan rollback.
 
-## Prinsip konten
+HTML/CSS/JS lama dipertahankan sebagai referensi; tidak lagi menjadi sumber runtime. Snapshot sebelum migrasi tersedia di .migration-backup (diabaikan Git). /index.html dan /resume.html diarahkan ke rute Next.js baru.
 
-Data Analyst dan Backend Developer disajikan sebagai **arah karier**, bukan klaim pengalaman kerja pada kedua posisi tersebut. Teknologi hanya berasal dari profil yang sudah ada. Tidak ada penambahan Python, Excel, BI tools, perusahaan, hasil terukur, ataupun proyek data baru.
+## Admin dan konten
 
-Tiga konsep lama tetap dipertahankan: Analytics UI, Brand Launch, dan Creative Portfolio. Kolom yang belum memiliki informasi ditandai “Belum diisi” atau “Perlu dilengkapi”. Bagian studi kasus data/backend merupakan template pengisian, bukan proyek baru. Kerangka proses kerja merupakan pendekatan yang dituju, bukan laporan proyek yang sudah selesai.
+Buka /admin untuk mengubah profil, teks situs, proyek, keahlian, proses, pengalaman, pendidikan, serta media. Draft hanya untuk pemilik. Publish memperbarui halaman tanpa build ulang; halaman membaca database secara dinamis.
 
-Hero berisi query MySQL dan diagram alur **ilustratif**. Query tidak dieksekusi. Tidak ada grafik dengan angka buatan, statistik pencapaian, atau hasil query fiktif. Filter dihilangkan karena arsip hanya berisi tiga konsep; seluruh catatan dapat dibaca dengan elemen HTML `details`.
+Status draft/published berbeda dari tahap concept/in-progress/completed. Ada pengurutan, unggulan, arsip, preview terlindungi, riwayat versi, dan ringkasan proyek yang belum lengkap.
 
-File `project1.png`, `project2.png`, `project3.png`, dan `assets/resume/CV.pdf` bawaan hanya berisi teks placeholder. File tersebut dipertahankan, tetapi tidak ditautkan sebagai aset valid. Tautan CV menuju `resume.html` yang benar-benar tersedia.
+Media baru default privat. Ubah ke publik hanya jika file memang siap dibagikan. Media privat tidak dapat dibaca pengunjung melalui endpoint file. Gambar memerlukan alt text; format PNG/JPG/WebP/PDF maksimal 4 MiB. Foto statis bawaan di public/assets memang publik.
 
-## Menyesuaikan
+Beranda dan /cv memakai profil, keahlian, pengalaman, dan pendidikan yang sama. PDF final hanya ditautkan jika file telah diunggah dan tersedia publik. CV tetap dapat dicetak dari browser.
 
-Ubah konten langsung di HTML pada bagian yang bersangkutan. Tidak ada data proyek duplikat di JavaScript. Perbarui `index.html` dan `resume.html` bersamaan bila profil, pengalaman, atau kontak berubah.
+## Integritas konten dan kontak
 
-Warna tersedia sebagai custom properties pada awal CSS. Tema mengikuti perangkat sampai pengunjung membuat pilihan; preferensi memakai kunci `satria-theme` di localStorage. Penyimpanan yang diblokir tidak menghentikan pergantian tema.
+Informasi pribadi, arah karier, teknologi, pengalaman, dan tiga konsep lama dipertahankan. Kontribusi atau hasil yang belum diketahui disimpan kosong dan diberi penanda. Tidak ada perusahaan, pencapaian, atau keahlian tambahan buatan. Lihat CONTENT_GUIDE.md.
 
-## Kontak dan aksesibilitas
+File gambar proyek/PDF bawaan yang hanya berisi placeholder tidak dipakai sebagai karya atau CV valid. Formulir publik hanya membuka draf mailto; pesan dikirim sendiri lewat aplikasi email pengunjung.
 
-Formulir membuka draf `mailto:`; pesan harus dikirim sendiri dari aplikasi email. Tidak ada backend atau penyimpanan pesan. Tautan email langsung, WhatsApp, GitHub, LinkedIn, dan Instagram tetap tersedia.
+Reset password lewat email memerlukan SMTP. Tanpa SMTP, gunakan npm run admin:reset; token reset tidak dicetak ke log.
 
-Navigasi, catatan proyek, dan tautan bekerja tanpa JavaScript. Tombol menu mengumumkan status ARIA, mendukung Escape dan keyboard, serta tertutup saat pengunjung berpindah bagian. Tidak ada animasi berulang; efek masuk singkat dimatikan saat `prefers-reduced-motion: reduce`. Fokus keyboard, skip link, heading, alt text, dan tata letak cetak tersedia.
+## Pemeriksaan
 
-## Verifikasi pada pengerjaan ini
+```sh
+npm run typecheck
+npm test
+npm run build
+```
 
-- `node --check js/main.js` dan pemeriksaan whitespace Git.
-- Pemeriksaan ID unik, heading utama, label formulir, alt text, path aset, dan anchor lintas halaman menggunakan parser HTML.
-- Chrome headless: viewport 320, 375, 600, 768, 820, 1024, dan 1440 piksel pada kedua tema, termasuk saat catatan proyek dibuka.
-- Navigasi dengan Enter/Tab/Escape, pembukaan catatan native, navigasi dan catatan tanpa JavaScript, persistensi tema, serta tema saat localStorage diblokir.
-- Validasi formulir kosong, email tidak valid, nama hanya spasi, pengodean draf email, dan status yang tidak mengklaim pesan terkirim.
-- Pemeriksaan warna terhitung pada teks yang terlihat di kedua tema; ambang 4.5:1 untuk teks biasa dan 3:1 untuk teks besar. Border formulir melewati 3:1 terhadap latarnya. Ini bukan audit aksesibilitas menyeluruh.
-- CV dimuat, kontrol cetak disembunyikan pada media print, dan browser berhasil menghasilkan dokumen PDF.
+Dengan database dan server produksi lokal yang aktif:
 
-Tidak ada pengiriman email, pemeriksaan langsung profil eksternal, atau pengujian pada perangkat seluler fisik. Pemeriksaan responsif menggunakan emulasi viewport Chrome.
+```sh
+npm run test:integration
+```
+
+Integration test dibatasi ke host/database loopback dan membuat/menghapus data serta akun QA sementara. TEST_SERVER_URL opsional mengatur origin lokal. QA_KEEP_SESSION hanya untuk pengujian browser; akun sementara wajib dibersihkan setelahnya. Jangan menjalankan integration test terhadap produksi.
+
+## Deployment dan keamanan konfigurasi
+
+Ikuti DEPLOYMENT.md dan .env.production.example. Jangan memasukkan .env, folder database, atau password ke Git. Aplikasi menolak storage lokal di Vercel. Bucket Supabase harus privat dengan S3 access key/secret khusus server.
+
+Schema portfolio tidak boleh diekspos melalui Supabase Data API. Login Payload berbeda dari Supabase Auth. Jangan menambahkan Prisma atau sistem autentikasi lain untuk mengelola CMS yang sama.
+
+Versi dikunci melalui package-lock.json. Override DOMPurify dan esbuild menindaklanjuti temuan audit transitif tanpa menurunkan Payload. Masih ada temuan low severity pada deepmerge melalui Payload yang belum memiliki patch upstream pada pemeriksaan ini; audit belum sepenuhnya bersih. Periksa ulang saat memperbarui dependensi.

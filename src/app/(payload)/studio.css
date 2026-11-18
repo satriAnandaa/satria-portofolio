@@ -1,0 +1,200 @@
+@font-face {
+  font-family: StudioDisplay;
+  src: url('/fonts/Oswald.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+}
+:root {
+  --style-radius-s: 6px;
+  --style-radius-m: 12px;
+  --style-radius-l: 20px;
+  --studio-accent: #456c00;
+}
+html[data-theme='dark'] {
+  --studio-accent: #bbf733;
+  --theme-bg: #0b0d09;
+  --theme-input-bg: #151910;
+  --theme-elevation-0: #0b0d09;
+  --theme-elevation-50: #12160e;
+  --theme-elevation-100: #1b2015;
+  --theme-elevation-150: #2d3424;
+  --theme-elevation-200: #3b4430;
+}
+.studio-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+.studio-logo svg,
+.studio-icon svg {
+  width: 42px;
+  height: 42px;
+  color: var(--studio-accent);
+}
+.studio-logo strong {
+  font-size: 30px;
+  letter-spacing: -1px;
+}
+.studio-logo small {
+  display: block;
+  font: 9px monospace;
+  letter-spacing: 0.15em;
+  margin-top: 5px;
+  opacity: 0.7;
+}
+.studio-login {
+  margin: 25px 0 30px;
+  padding-top: 25px;
+  border-top: 1px solid var(--theme-elevation-150);
+}
+.studio-kicker {
+  font: 10px monospace;
+  color: var(--studio-accent);
+  letter-spacing: 0.1em;
+}
+.studio-login h1,
+.studio-welcome h2 {
+  font-family: StudioDisplay, sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 15px 0;
+}
+.studio-login p,
+.studio-help {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.studio-help {
+  padding: 18px;
+  border-left: 2px solid var(--studio-accent);
+  background: var(--theme-elevation-50);
+}
+.studio-welcome {
+  padding: 32px;
+  margin-bottom: 35px;
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 20px;
+  background: var(--theme-elevation-50);
+}
+.studio-welcome-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.studio-welcome-heading > div {
+  max-width: 680px;
+}
+.studio-welcome p {
+  line-height: 1.7;
+  font-size: 13px;
+}
+.studio-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-block: 24px 30px;
+}
+.studio-actions a {
+  padding: 10px 16px;
+  border-radius: 30px;
+  border: 1px solid var(--studio-accent);
+  text-decoration: none;
+  font-size: 12px;
+}
+.studio-actions a:first-child {
+  background: #bbf733;
+  color: #11170a;
+  border-color: #bbf733;
+}
+.studio-counts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-block: 25px;
+}
+.studio-counts > a {
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 14px;
+  padding: 22px;
+  text-decoration: none;
+}
+.studio-counts strong {
+  font-family: StudioDisplay, sans-serif;
+  font-size: 38px;
+  color: var(--studio-accent);
+  display: block;
+}
+.studio-counts span {
+  font-size: 12px;
+}
+.studio-welcome h3 {
+  font-family: StudioDisplay, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 30px;
+}
+.studio-optional {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-block: 20px;
+}
+.studio-optional a {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 12px;
+  padding: 18px;
+  text-decoration: none;
+}
+.studio-optional span {
+  font: 10px monospace;
+  color: var(--studio-accent);
+}
+.studio-optional a:hover,
+.studio-counts a:hover {
+  border-color: var(--studio-accent);
+}
+.studio-checklist {
+  border-top: 1px solid var(--theme-elevation-150);
+  margin-top: 28px;
+}
+.studio-checklist li {
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+.btn--style-primary {
+  --color: #11170a;
+  --bg-color: #bbf733;
+  --hover-bg: #d1ff71;
+  --hover-color: #11170a;
+  border-radius: 30px;
+}
+.card {
+  border-radius: 14px;
+}
+.field-type input,
+.field-type textarea,
+.field-type .rs__control {
+  border-radius: 8px;
+}
+@media (max-width: 700px) {
+  .studio-welcome {
+    padding: 22px;
+  }
+  .studio-counts {
+    grid-template-columns: 1fr;
+  }
+  .studio-counts > a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .studio-welcome-heading {
+    display: block;
+  }
+}

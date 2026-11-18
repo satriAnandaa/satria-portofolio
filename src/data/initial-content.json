@@ -1,0 +1,343 @@
+{
+  "profile": {
+    "imported": true,
+    "name": "Satria Ananda",
+    "location": "Bali, Indonesia",
+    "career": "Data Analyst / Backend Developer",
+    "bio": "Saya Satria Ananda, pengembang web dengan latar belakang Sistem Informasi, berbasis di Bali. Saya menyukai desain yang jelas, pengalaman pengguna yang nyaman, dan kode yang mudah dikembangkan.\n\nSaat ini saya mengarahkan pengembangan karier ke Data Analyst dan Backend Developer. Pengalaman web dan desain tetap menjadi bekal untuk memahami bagaimana informasi disusun, diproses, dan disampaikan.",
+    "email": "satriaananda690@gmail.com",
+    "phone": "+6282147020593",
+    "personalCaption": "Catatan visual dari Bali — foto pribadi dari aset portofolio.",
+    "socialLinks": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/satriAnandaa"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/satria-ananda-966361317"
+      },
+      {
+        "label": "WhatsApp",
+        "url": "https://wa.me/6282147020593"
+      },
+      {
+        "label": "Instagram",
+        "url": "https://www.instagram.com/suchria_/"
+      }
+    ],
+    "_status": "published"
+  },
+  "siteSettings": {
+    "imported": true,
+    "siteTitle": "Satria Ananda — Data & Backend / Portfolio",
+    "description": "Satria Ananda — portofolio dengan arah karier Data Analyst dan Backend Developer. Keahlian MySQL, PHP, Laravel, dan Go; catatan proyek dan pengalaman di Bali.",
+    "heroGreeting": "HALO, SAYA SATRIA ANANDA",
+    "heroTitle": "Data yang jelas.\nSistem yang",
+    "heroAccent": "masuk akal.",
+    "heroDescription": "Berangkat dari pengembangan web dan Sistem Informasi, saya ingin mendalami cara data dipahami dan sistem dibangun. MySQL, PHP, Laravel, dan Go menjadi bagian dari bekal saya.",
+    "notebookTitle": "Dari struktur, menuju pemahaman.",
+    "query": "-- Mulai dari mengenali struktur.\nSELECT\n  table_name,\n  column_name,\n  data_type\nFROM information_schema.columns\nWHERE table_schema = DATABASE()\nORDER BY table_name, ordinal_position;",
+    "queryNote": "Skema & query ilustratif. Tidak menjalankan database atau menampilkan hasil proyek.",
+    "footerNote": "BUILT WITH CLARITY / NEXT.JS · TAILWIND",
+    "navigation": [
+      {
+        "label": "Catatan proyek",
+        "target": "projects"
+      },
+      {
+        "label": "Keahlian",
+        "target": "skills"
+      },
+      {
+        "label": "Tentang",
+        "target": "about"
+      },
+      {
+        "label": "Kontak ↗",
+        "target": "contact"
+      }
+    ],
+    "sections": [
+      {
+        "key": "projects",
+        "eyebrow": "01 / PROJECT NOTES",
+        "title": "Di balik",
+        "accent": "sebuah solusi.",
+        "description": "Catatan konsep yang sudah ada di portofolio. Fokusnya pada masalah dan pendekatan; bukti implementasi serta hasil masih perlu dilengkapi.",
+        "enabled": true
+      },
+      {
+        "key": "skills",
+        "eyebrow": "02 / TOOLKIT",
+        "title": "Fondasi dulu.",
+        "accent": "Alat mengikuti.",
+        "description": "Teknologi yang sudah tercantum dalam portofolio. Tanpa persentase penguasaan; ruang lingkupnya ditunjukkan lewat dokumentasi karya.",
+        "enabled": true
+      },
+      {
+        "key": "process",
+        "eyebrow": "03 / WORKING FRAMEWORK",
+        "title": "Pertanyaan sebelum query.",
+        "accent": "Kejelasan sebelum kode.",
+        "description": "Kerangka kerja yang ingin saya terapkan dan dokumentasikan pada studi kasus data dan backend berikutnya.",
+        "enabled": true
+      },
+      {
+        "key": "about",
+        "eyebrow": "04 / THE PERSON BEHIND THE NOTES",
+        "title": "Rasa ingin tahu,",
+        "accent": "arah yang terus tumbuh.",
+        "description": "",
+        "enabled": true
+      },
+      {
+        "key": "contact",
+        "eyebrow": "05 / LET’S CONNECT",
+        "title": "Ada pertanyaan",
+        "accent": "yang menarik?",
+        "description": "Untuk kesempatan kerja, kolaborasi, atau bertukar ide tentang data dan pengembangan web, mari mulai percakapan.",
+        "enabled": true
+      }
+    ],
+    "_status": "published"
+  },
+  "projects": [
+    {
+      "title": "Analytics UI",
+      "slug": "analytics-ui",
+      "stage": "concept",
+      "category": "KONSEP DASHBOARD",
+      "summary": "Eksplorasi antarmuka dashboard untuk menyusun data dan statistik agar lebih mudah dibaca.",
+      "context": "Informasi pada dashboard perlu disusun dalam antarmuka yang bersih dan mudah dipindai. Kebutuhan pengguna spesifik belum dicantumkan.",
+      "contribution": null,
+      "outcome": null,
+      "scope": "Lingkup yang tercatat: konsep antarmuka. Belum ada dataset atau analisis yang dapat ditinjau.",
+      "technologies": [
+        {
+          "name": "Figma"
+        },
+        {
+          "name": "React"
+        }
+      ],
+      "featured": true,
+      "legacyId": "project-analytics",
+      "order": 0,
+      "archived": false,
+      "_status": "published"
+    },
+    {
+      "title": "Brand Launch",
+      "slug": "brand-launch",
+      "stage": "concept",
+      "category": "KONSEP LANDING PAGE",
+      "summary": "Konsep landing page untuk memperkenalkan identitas dan produk sebuah brand melalui hierarki visual yang jelas.",
+      "context": "Menyajikan pengenalan produk dan identitas brand dalam sebuah landing page. Nama brand dan kebutuhan riil belum dicantumkan.",
+      "contribution": null,
+      "outcome": null,
+      "scope": "Lingkup yang tercatat: presentasi brand. Tidak ada klaim kenaikan konversi atau hasil bisnis.",
+      "technologies": [
+        {
+          "name": "HTML"
+        },
+        {
+          "name": "Tailwind CSS"
+        }
+      ],
+      "featured": false,
+      "legacyId": "project-brand",
+      "order": 1,
+      "archived": false,
+      "_status": "published"
+    },
+    {
+      "title": "Creative Portfolio",
+      "slug": "creative-portfolio",
+      "stage": "concept",
+      "category": "KONSEP PERSONAL WEBSITE",
+      "summary": "Konsep website personal yang menghubungkan profil, cerita, karya, dan kontak dengan navigasi sederhana.",
+      "context": "Memberikan tempat yang jelas untuk identitas, karya, dan informasi kontak seseorang.",
+      "contribution": null,
+      "outcome": null,
+      "scope": "Lingkup yang tercatat: desain dan pengalaman navigasi portofolio personal.",
+      "technologies": [
+        {
+          "name": "HTML"
+        },
+        {
+          "name": "CSS"
+        },
+        {
+          "name": "JavaScript"
+        }
+      ],
+      "featured": false,
+      "legacyId": "project-portfolio",
+      "order": 2,
+      "archived": false,
+      "_status": "published"
+    }
+  ],
+  "skills": [
+    {
+      "title": "Data & database",
+      "description": "MySQL menjadi titik awal yang relevan untuk arah analisis data. Studi kasus analisis masih perlu didokumentasikan.",
+      "items": [
+        {
+          "name": "MySQL"
+        }
+      ],
+      "mark": "STRUCTURE",
+      "legacyId": "skills-0",
+      "order": 0,
+      "archived": false,
+      "_status": "published"
+    },
+    {
+      "title": "Backend development",
+      "description": "Bahasa dan framework backend yang tercantum pada profil sebelumnya.",
+      "items": [
+        {
+          "name": "PHP"
+        },
+        {
+          "name": "Laravel"
+        },
+        {
+          "name": "Go"
+        }
+      ],
+      "mark": "LOGIC",
+      "legacyId": "skills-1",
+      "order": 1,
+      "archived": false,
+      "_status": "published"
+    },
+    {
+      "title": "Antarmuka web",
+      "description": "Bekal untuk menyajikan informasi dan menghubungkan antarmuka dengan kebutuhan aplikasi.",
+      "items": [
+        {
+          "name": "HTML & CSS"
+        },
+        {
+          "name": "JavaScript"
+        },
+        {
+          "name": "React"
+        },
+        {
+          "name": "Tailwind CSS"
+        }
+      ],
+      "mark": "INTERFACE",
+      "legacyId": "skills-2",
+      "order": 2,
+      "archived": false,
+      "_status": "published"
+    },
+    {
+      "title": "Desain & pengalaman",
+      "description": "Perhatian pada struktur informasi, alur interaksi, dan tampilan lintas perangkat.",
+      "items": [
+        {
+          "name": "Figma"
+        },
+        {
+          "name": "Wireframing"
+        },
+        {
+          "name": "Prototyping"
+        },
+        {
+          "name": "Responsive design"
+        }
+      ],
+      "mark": "CLARITY",
+      "legacyId": "skills-3",
+      "order": 3,
+      "archived": false,
+      "_status": "published"
+    }
+  ],
+  "processSteps": [
+    {
+      "title": "Pahami pertanyaannya.",
+      "label": "01 / DEFINE",
+      "description": "Tentukan kebutuhan, pengguna, dan ruang lingkup sebelum memilih alat.",
+      "legacyId": "step-0",
+      "order": 0,
+      "archived": false,
+      "_status": "published"
+    },
+    {
+      "title": "Kenali strukturnya.",
+      "label": "02 / INSPECT",
+      "description": "Petakan sumber, hubungan informasi, asumsi, serta data yang masih kurang.",
+      "legacyId": "step-1",
+      "order": 1,
+      "archived": false,
+      "_status": "published"
+    },
+    {
+      "title": "Periksa logikanya.",
+      "label": "03 / VERIFY",
+      "description": "Bangun solusi bertahap dan cocokkan hasilnya dengan pertanyaan awal.",
+      "legacyId": "step-2",
+      "order": 2,
+      "archived": false,
+      "_status": "published"
+    },
+    {
+      "title": "Ceritakan hasilnya.",
+      "label": "04 / EXPLAIN",
+      "description": "Dokumentasikan keputusan, bukti, dan keterbatasan dengan bahasa yang jelas.",
+      "legacyId": "step-3",
+      "order": 3,
+      "archived": false,
+      "_status": "published"
+    }
+  ],
+  "experiences": [
+    {
+      "title": "Developer Intern",
+      "period": "2026",
+      "kind": "INTERNSHIP",
+      "description": "Proyek web dengan fokus pada pengalaman pengguna, integrasi UI, dan optimasi performa.",
+      "legacyId": "experience-0",
+      "order": 0,
+      "archived": false,
+      "_status": "published"
+    },
+    {
+      "title": "Freelance Web Developer",
+      "period": "2025",
+      "kind": "FREELANCE",
+      "description": "Membangun landing page, portofolio, dan antarmuka web dengan pendekatan yang modern dan responsif.",
+      "legacyId": "experience-1",
+      "order": 1,
+      "archived": false,
+      "_status": "published"
+    },
+    {
+      "title": "UI/UX & Website Project",
+      "period": "2024",
+      "kind": "PROYEK KAMPUS",
+      "description": "Proyek kampus yang berfokus pada desain, struktur informasi, dan implementasi frontend.",
+      "legacyId": "experience-2",
+      "order": 2,
+      "archived": false,
+      "_status": "published"
+    }
+  ],
+  "education": [
+    {
+      "title": "S1 Sistem Informasi",
+      "legacyId": "education-0",
+      "order": 0,
+      "archived": false,
+      "_status": "published"
+    }
+  ]
+}

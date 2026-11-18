@@ -1,24 +1,34 @@
-# Panduan melengkapi konten
+# Melengkapi konten melalui admin
 
-Semua penanda di website adalah teks statis. Ubah file HTML; informasi tidak dikirim atau disimpan melalui formulir.
+Konten aktif sekarang disimpan dalam PostgreSQL dan diedit melalui /admin. File HTML lama hanya referensi migrasi. Seed awal berada di src/data/initial-content.json dan tidak menimpa edit admin ketika dijalankan ulang.
 
-## Prioritas pengisian
+## Prioritas
 
-1. **Studi kasus data/backend nyata** — isi template “NEXT NOTE” di `index.html` dengan judul, pertanyaan, sumber data/izin, kontribusi, metode/teknologi, hasil, keterbatasan, dan tautan bukti. Setelah lengkap, jadikan artikel proyek biasa dan hapus label template. Jangan menambahkan alat atau hasil yang belum benar-benar digunakan.
-2. **Tiga konsep lama** — cari `project-analytics`, `project-brand`, dan `project-portfolio`. Lengkapi kontribusi pribadi, konteks spesifik, hasil, screenshot yang valid, demo, dan URL repositori masing-masing. GitHub profil bukan pengganti tautan repo proyek.
-3. **Pengalaman** — cari `experience-block` pada halaman utama dan bagian pengalaman di `resume.html`. Tambahkan institusi/perusahaan yang benar, periode, peran, dan bukti yang boleh dipublikasikan.
-4. **Pendidikan** — lengkapi institusi serta periode pada `education-note` dan bagian pendidikan CV. Jangan mengubahnya menjadi klaim kelulusan jika status belum dikonfirmasi.
-5. **CV final** — `resume.html` dapat langsung dicetak. Lengkapi penanda terlebih dahulu sebelum digunakan melamar. Jika memakai PDF final, simpan berkas PDF yang valid di `assets/resume/` lalu ubah semua tautan CV secara konsisten.
+1. **Studi kasus data/backend nyata:** tambah proyek melalui menu Proyek. Isi masalah, sumber/izin data di konteks, kontribusi, metode/teknologi, hasil, keterbatasan, serta bukti.
+2. **Tiga konsep lama:** lengkapi Analytics UI, Brand Launch, dan Creative Portfolio. Jangan menyebutnya produk yang telah dirilis tanpa bukti.
+3. **Pengalaman:** lengkapi institusi/perusahaan, periode, kontribusi, dan tautan yang boleh dipublikasikan.
+4. **Pendidikan:** lengkapi institusi, periode, dan status yang sudah dikonfirmasi.
+5. **CV final:** edit Profil & CV. /cv membaca data yang sama dengan beranda; unggah PDF valid bila ingin menyediakan versi unduhan.
+
+Field yang belum diketahui tetap kosong. Tampilan memberi penanda Belum diisi. Jangan mengganti kekosongan dengan pencapaian, angka, perusahaan, atau keterampilan buatan. Status Konsep berbeda dari Draft: konsep bisa dipublikasikan dengan label yang benar.
+
+Dashboard admin menunjukkan proyek yang belum mempunyai kontribusi atau hasil. Alt text wajib untuk unggahan gambar. Setiap file mempunyai visibilitas privat/publik yang terpisah dari status entri.
+
+## Bagian opsional baru
+
+Layanan, penghargaan, testimoni, paket harga, dan artikel blog belum diisi. Tambahkan hanya penawaran atau informasi yang benar-benar Anda miliki. Konten awal dan seed tidak membuat entri contoh untuk bagian-bagian ini. Setelah publikasi, aktifkan bagian melalui Situs & beranda.
+
+Sampul proyek bawaan merupakan ilustrasi konsep dengan label yang terlihat. Ganti melalui unggahan sampul untuk menampilkan hasil karya atau tangkapan layar asli.
 
 ## Data pribadi yang dipertahankan
 
-- Nama: Satria Ananda.
-- Lokasi: Bali, Indonesia.
+- Satria Ananda; Bali, Indonesia.
 - Pendidikan yang tercantum: S1 Sistem Informasi.
 - Email: satriaananda690@gmail.com.
-- WhatsApp: +62 821-4702-0593.
+- Telepon/WhatsApp: +62 821-4702-0593.
 - GitHub: https://github.com/satriAnandaa.
 - LinkedIn: https://www.linkedin.com/in/satria-ananda-966361317.
 - Instagram: https://www.instagram.com/suchria_/.
+- Keahlian berasal dari portofolio sebelumnya, tanpa penambahan klaim PostgreSQL/Next.js hanya karena dipakai sebagai infrastruktur situs.
 
-Data di atas berasal dari file proyek yang sudah tersedia, bukan verifikasi eksternal. Konfirmasikan status pendidikan dan pengalaman sebelum membagikan CV final.
+Informasi diimpor dari proyek, bukan verifikasi eksternal. Konfirmasikan detail pengalaman/pendidikan sebelum memakai CV final. Lihat ADMIN_GUIDE.md untuk alur pengeditan dan DEPLOYMENT.md untuk produksi.
