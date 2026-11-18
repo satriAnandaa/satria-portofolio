@@ -2,6 +2,7 @@ import type { Field, GlobalConfig } from 'payload'
 import { adminOnly, readGlobal } from '../lib/access'
 import { validateURL } from '../lib/validation'
 import { revalidateContent } from '../hooks/revalidateContent'
+import { resolveServerURL } from '../lib/server-url'
 
 const text = (name: string, label: string, required = false): Field => ({
   name,
@@ -23,7 +24,7 @@ function global(slug: string, label: string, fields: Field[]): GlobalConfig {
     admin: {
       group: 'Pengaturan',
       preview: () =>
-        (process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000') +
+        resolveServerURL() +
         '/preview?path=/',
     },
     access: { read: readGlobal, update: adminOnly },

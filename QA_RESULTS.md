@@ -8,6 +8,8 @@
 - Uji satu PNG privat melalui Payload berhasil mengunggah ke S3, membaca metadata, memverifikasi objek S3, dan memastikan pengunjung anonim tidak dapat menemukan media privat. Objek dan record uji dihapus; jumlah media kembali seperti semula.
 - Kolom Foto / gambar proyek dipindah tepat setelah judul dengan petunjuk unggah baru atau memilih berkas yang ada. Nama field cover dipertahankan sehingga referensi foto proyek tidak berubah.
 - TypeScript dan build produksi berhasil.
+- Verifikasi dialog Buat Baru menemukan kegagalan autentikasi pada server action. URL server, allowlist CSRF, dan tautan pratinjau kini menggunakan domain produksi yang disediakan Vercel saat berjalan di produksi; tidak menggunakan Origin dari request dan tidak melonggarkan allowlist.
+- Pengujian regresi memastikan domain produksi mengungguli URL impor yang lama, serta konfigurasi lokal/self-hosted tetap memakai origin eksplisit.
 
 ## Perapian admin 18 November 2026
 

@@ -6,11 +6,13 @@ import { s3Storage } from "@payloadcms/storage-s3";
 import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
 import sharp from "sharp";
 import { id } from "@payloadcms/translations/languages/id";
+import { resolveServerURL } from "./lib/server-url";
 import { collections } from "./collections/content";
 import { optionalCollections } from "./collections/optional";
 import { Profile, SiteSettings } from "./globals/content";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
+const serverURL = resolveServerURL();
 const storage = process.env.STORAGE_DRIVER === "s3";
 if (process.env.VERCEL && !storage)
   throw new Error(
@@ -48,7 +50,7 @@ export default buildConfig({
     },
   },
   secret: process.env.PAYLOAD_SECRET || "",
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000",
+  serverURL,
   admin: {
     user: "users",
     importMap: { baseDir: dirname },
@@ -78,7 +80,7 @@ export default buildConfig({
   sharp,
   typescript: { outputFile: path.resolve(dirname, "payload-types.ts") },
   upload: { limits: { fileSize: 4 * 1024 * 1024 } },
-  csrf: [process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000"],
+  csrf: [serverURL],
   plugins: storage
     ? [
         s3Storage({

@@ -4,6 +4,7 @@ import { APIError, type CollectionConfig, type Field } from "payload";
 import { adminOnly, publishedOnly, readMedia } from "../lib/access";
 import { validateSlug, validateURL, recognizedFile } from "../lib/validation";
 import { revalidateContent } from "../hooks/revalidateContent";
+import { resolveServerURL } from "../lib/server-url";
 
 const text = (name: string, label: string, required = false): Field => ({
   name,
@@ -76,7 +77,7 @@ export function content(
       ...(["projects", "posts"].includes(slug)
         ? {
             preview: (data: Record<string, unknown>) =>
-              (process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000") +
+              resolveServerURL() +
               "/preview?path=" +
               encodeURIComponent(
                 (slug === "posts" ? "/blog/" : "/projects/") + data.slug,
