@@ -8,18 +8,22 @@ Buka `http://localhost:3000/admin` dan login menggunakan akun tersebut. Login in
 
 ## Menu utama
 
+Beranda admin menampilkan tombol **Tambah proyek**, ringkasan konten, empat pintasan utama, serta panduan **Dari draf ke website**. Menu **Bagian tambahan** pada beranda dapat dibuka saat ingin mengisi layanan, penghargaan, testimoni, paket harga, atau blog. Setelah menerbitkan kontennya, aktifkan bagian tersebut melalui **Situs & beranda**.
+
+Menu samping dikelompokkan menjadi **Pengaturan**, **Berkas**, **Portofolio**, dan **Bagian tambahan**. Gunakan tombol menu di kiri atas untuk membuka atau menutupnya pada layar kecil. Tema terang dan gelap tersedia di menu akun.
+
 - **Profil & CV:** nama, lokasi, arah karier, bio, foto, kontak, tautan sosial, PDF CV opsional.
 - **Situs & beranda:** SEO, teks hero, query ilustratif, navigasi, judul bagian, dan bagian yang ditampilkan.
 - **Proyek:** konteks, kontribusi, hasil/bukti, keterbatasan, teknologi, gambar, tautan demo/repo, urutan, unggulan, tahap proyek.
-- **Kelompok keahlian / Langkah proses / Pengalaman / Pendidikan:** tambah dan ubah isi yang terkait.
-- **Media:** unggah PNG/JPG/WebP/PDF, maksimum 4 MiB per file. Gambar memerlukan alt text.
+- **Keahlian / Proses kerja / Pengalaman / Pendidikan:** tambah dan ubah isi yang terkait.
+- **Pustaka media:** unggah PNG/JPG/WebP/PDF, maksimum 4 MiB per file. Isi deskripsi gambar untuk membantu pembaca layar. Pilih **Publik** jika berkas akan digunakan di website, lalu pilih berkas tersebut di profil atau proyek.
 - **Akun pemilik:** informasi akun yang sudah dibuat.
 
 ## Draft, publish, dan arsip
 
 1. Tambahkan atau edit entri.
 2. Simpan draft jika belum siap tampil.
-3. Gunakan Preview pada editor proyek/pengaturan atau tautan “Preview draft” di dashboard. Preview memerlukan sesi admin dan tidak dapat dibuka pengunjung anonim.
+3. Gunakan pratinjau pada editor proyek/pengaturan atau tautan **Pratinjau draf** di beranda admin. Pratinjau memerlukan sesi admin dan tidak dapat dibuka pengunjung anonim.
 4. Periksa tampilan dan penanda informasi kosong.
 5. Publikasikan. Halaman publik membaca data terbaru tanpa build ulang.
 6. Untuk menarik konten, gunakan Unpublish. Untuk menyimpan entri di admin tetapi tidak menampilkannya, centang **Arsipkan** lalu publikasikan perubahan.

@@ -1,4 +1,4 @@
-import { BrandMark } from '@/components/ui/Design'
+import { BrandMark } from "@/components/ui/Design";
 
 export function AdminLogo() {
   return (
@@ -6,22 +6,22 @@ export function AdminLogo() {
       <BrandMark />
       <span>
         <strong>Satria.</strong>
-        <small>CONTENT STUDIO</small>
+        <small>KELOLA PORTOFOLIO</small>
       </span>
     </span>
-  )
+  );
 }
 export function AdminIcon() {
   return (
     <span className="studio-icon">
       <BrandMark />
     </span>
-  )
+  );
 }
 export function LoginIntro() {
   return (
     <div className="studio-login">
-      <span className="studio-kicker">PRIVATE WORKSPACE</span>
+      <span className="studio-kicker">RUANG ADMIN PRIBADI</span>
       <h1>
         Ide bagus.
         <br />
@@ -29,7 +29,7 @@ export function LoginIntro() {
       </h1>
       <p>Masuk untuk mengelola portofolio, publikasi, dan media Anda.</p>
     </div>
-  )
+  );
 }
 export function AppearanceHelp() {
   return (
@@ -38,5 +38,5 @@ export function AppearanceHelp() {
       berasal dari Profil & CV. Judul hero lama dipakai sebagai pernyataan utama
       pada bagian tentang.
     </div>
-  )
+  );
 }

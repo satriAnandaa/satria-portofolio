@@ -1,5 +1,17 @@
 # Hasil verifikasi migrasi lokal
 
+## Perapian admin 18 November 2026
+
+- Meninjau rekaman 20261118-0247-54.6329795.mp4: beranda, menu samping, dan formulir media.
+- Beranda diganti dengan dashboard khusus agar tidak mengulang daftar kartu koleksi bawaan. Ringkasan tetap membaca data melalui akses pengguna yang login.
+- Memeriksa dashboard dengan akun sementara pada database lokal: tautan utama, kelompok menu, dan buka/tutup bagian tambahan berfungsi.
+- Memeriksa tema terang dan gelap, desktop 1280 px, serta ponsel 390 px. Dashboard dan formulir media tidak memiliki overflow horizontal pada lebar yang diperiksa.
+- Formulir proyek menampilkan Simpan draf dan Terbitkan perubahan dalam bahasa Indonesia; unggahan menampilkan batas berkas dan penjelasan visibilitas.
+- Memperbaiki ikon SA yang terpotong pada breadcrumb admin.
+- TypeScript, tiga pengujian unit, git diff --check, dan build produksi berhasil. Pemeriksaan visual memakai server pengembangan lokal; perubahan belum di-push atau di-deploy.
+- Akun uji lokal dan berkas kredensial sementara telah dihapus. Konten portofolio tidak diubah selama pemeriksaan.
+- Tangkapan layar lokal tersimpan di .data/admin-redesign-desktop.jpg, .data/admin-redesign-light.jpg, dan .data/admin-redesign-mobile.jpg (diabaikan Git).
+
 ## Persiapan Supabase 18 November 2026
 
 - Koneksi Session pooler berhasil memakai sslmode=verify-full dan sertifikat supabase-ca.crt.

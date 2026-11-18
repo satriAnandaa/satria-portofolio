@@ -171,7 +171,7 @@ export interface User {
   collection: 'users';
 }
 /**
- * Media privat tidak bisa dibaca pengunjung. Pilih Publik untuk gambar/CV yang siap ditampilkan.
+ * Unggah gambar JPG, PNG, WebP atau PDF, maksimal 4 MB. Isi judul dan deskripsi gambar, lalu pilih Publik jika berkas akan digunakan di website.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
@@ -180,9 +180,12 @@ export interface Media {
   id: number;
   title: string;
   /**
-   * Wajib untuk gambar, boleh kosong untuk PDF.
+   * Jelaskan isi gambar secara singkat untuk pembaca layar. Wajib untuk gambar; boleh kosong untuk PDF.
    */
   alt?: string | null;
+  /**
+   * Gunakan Publik untuk gambar dan CV yang akan dilihat pengunjung.
+   */
   visibility: 'private' | 'public';
   updatedAt: string;
   createdAt: string;
@@ -197,12 +200,17 @@ export interface Media {
   focalY?: number | null;
 }
 /**
+ * Isi konten, simpan sebagai draf untuk ditinjau, lalu terbitkan agar tampil di website. Urutan terkecil ditampilkan lebih dahulu.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "projects".
  */
 export interface Project {
   id: number;
   title: string;
+  /**
+   * Gunakan huruf kecil dan tanda hubung, misalnya: dashboard-penjualan. Menjadi bagian dari alamat /projects/dashboard-penjualan.
+   */
   slug: string;
   stage: 'concept' | 'in-progress' | 'completed';
   category: string;
@@ -221,15 +229,26 @@ export interface Project {
   cover?: (number | null) | Media;
   demoURL?: string | null;
   repositoryURL?: string | null;
+  /**
+   * Tandai karya utama yang ingin ditonjolkan di portofolio.
+   */
   featured?: boolean | null;
   legacyId?: string | null;
+  /**
+   * Angka terkecil muncul lebih dahulu. Contoh: 1, 2, 3.
+   */
   order: number;
+  /**
+   * Sembunyikan dari website tanpa menghapus kontennya.
+   */
   archived?: boolean | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * Isi konten, simpan sebagai draf untuk ditinjau, lalu terbitkan agar tampil di website. Urutan terkecil ditampilkan lebih dahulu.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "skills".
  */
@@ -245,13 +264,21 @@ export interface Skill {
     | null;
   mark?: string | null;
   legacyId?: string | null;
+  /**
+   * Angka terkecil muncul lebih dahulu. Contoh: 1, 2, 3.
+   */
   order: number;
+  /**
+   * Sembunyikan dari website tanpa menghapus kontennya.
+   */
   archived?: boolean | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * Isi konten, simpan sebagai draf untuk ditinjau, lalu terbitkan agar tampil di website. Urutan terkecil ditampilkan lebih dahulu.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "process-steps".
  */
@@ -261,13 +288,21 @@ export interface ProcessStep {
   label: string;
   description: string;
   legacyId?: string | null;
+  /**
+   * Angka terkecil muncul lebih dahulu. Contoh: 1, 2, 3.
+   */
   order: number;
+  /**
+   * Sembunyikan dari website tanpa menghapus kontennya.
+   */
   archived?: boolean | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * Isi konten, simpan sebagai draf untuk ditinjau, lalu terbitkan agar tampil di website. Urutan terkecil ditampilkan lebih dahulu.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "experiences".
  */
@@ -281,13 +316,21 @@ export interface Experience {
   contribution?: string | null;
   evidenceURL?: string | null;
   legacyId?: string | null;
+  /**
+   * Angka terkecil muncul lebih dahulu. Contoh: 1, 2, 3.
+   */
   order: number;
+  /**
+   * Sembunyikan dari website tanpa menghapus kontennya.
+   */
   archived?: boolean | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * Isi konten, simpan sebagai draf untuk ditinjau, lalu terbitkan agar tampil di website. Urutan terkecil ditampilkan lebih dahulu.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "education".
  */
@@ -298,13 +341,21 @@ export interface Education {
   period?: string | null;
   educationStatus?: string | null;
   legacyId?: string | null;
+  /**
+   * Angka terkecil muncul lebih dahulu. Contoh: 1, 2, 3.
+   */
   order: number;
+  /**
+   * Sembunyikan dari website tanpa menghapus kontennya.
+   */
   archived?: boolean | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * Isi konten, simpan sebagai draf untuk ditinjau, lalu terbitkan agar tampil di website. Urutan terkecil ditampilkan lebih dahulu.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "services".
  */
@@ -321,13 +372,21 @@ export interface Service {
       }[]
     | null;
   legacyId?: string | null;
+  /**
+   * Angka terkecil muncul lebih dahulu. Contoh: 1, 2, 3.
+   */
   order: number;
+  /**
+   * Sembunyikan dari website tanpa menghapus kontennya.
+   */
   archived?: boolean | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * Isi konten, simpan sebagai draf untuk ditinjau, lalu terbitkan agar tampil di website. Urutan terkecil ditampilkan lebih dahulu.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "awards".
  */
@@ -340,13 +399,21 @@ export interface Award {
   evidenceURL?: string | null;
   logo?: (number | null) | Media;
   legacyId?: string | null;
+  /**
+   * Angka terkecil muncul lebih dahulu. Contoh: 1, 2, 3.
+   */
   order: number;
+  /**
+   * Sembunyikan dari website tanpa menghapus kontennya.
+   */
   archived?: boolean | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * Isi konten, simpan sebagai draf untuk ditinjau, lalu terbitkan agar tampil di website. Urutan terkecil ditampilkan lebih dahulu.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "testimonials".
  */
@@ -359,13 +426,21 @@ export interface Testimonial {
   avatar?: (number | null) | Media;
   sourceURL?: string | null;
   legacyId?: string | null;
+  /**
+   * Angka terkecil muncul lebih dahulu. Contoh: 1, 2, 3.
+   */
   order: number;
+  /**
+   * Sembunyikan dari website tanpa menghapus kontennya.
+   */
   archived?: boolean | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * Isi konten, simpan sebagai draf untuk ditinjau, lalu terbitkan agar tampil di website. Urutan terkecil ditampilkan lebih dahulu.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pricing-plans".
  */
@@ -384,13 +459,21 @@ export interface PricingPlan {
   featured?: boolean | null;
   ctaLabel?: string | null;
   legacyId?: string | null;
+  /**
+   * Angka terkecil muncul lebih dahulu. Contoh: 1, 2, 3.
+   */
   order: number;
+  /**
+   * Sembunyikan dari website tanpa menghapus kontennya.
+   */
   archived?: boolean | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * Isi konten, simpan sebagai draf untuk ditinjau, lalu terbitkan agar tampil di website. Urutan terkecil ditampilkan lebih dahulu.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
  */
@@ -404,7 +487,13 @@ export interface Post {
   cover?: (number | null) | Media;
   publishedDate: string;
   legacyId?: string | null;
+  /**
+   * Angka terkecil muncul lebih dahulu. Contoh: 1, 2, 3.
+   */
   order: number;
+  /**
+   * Sembunyikan dari website tanpa menghapus kontennya.
+   */
   archived?: boolean | null;
   updatedAt: string;
   createdAt: string;
