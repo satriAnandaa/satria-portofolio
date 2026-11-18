@@ -178,6 +178,7 @@ export interface User {
  */
 export interface Media {
   id: number;
+  _objectKey?: string | null;
   title: string;
   /**
    * Jelaskan isi gambar secara singkat untuk pembaca layar. Wajib untuk gambar; boleh kosong untuk PDF.
@@ -209,6 +210,10 @@ export interface Project {
   id: number;
   title: string;
   /**
+   * Klik Buat Baru untuk mengunggah foto, atau Pilih dari yang sudah ada untuk memakai Pustaka media. Pada berkas yang diunggah, isi deskripsi gambar dan pilih visibilitas Publik agar foto tampil di website.
+   */
+  cover?: (number | null) | Media;
+  /**
    * Gunakan huruf kecil dan tanda hubung, misalnya: dashboard-penjualan. Menjadi bagian dari alamat /projects/dashboard-penjualan.
    */
   slug: string;
@@ -226,7 +231,6 @@ export interface Project {
         id?: string | null;
       }[]
     | null;
-  cover?: (number | null) | Media;
   demoURL?: string | null;
   repositoryURL?: string | null;
   /**
@@ -642,6 +646,7 @@ export interface UsersSelect<T extends boolean = true> {
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
+  _objectKey?: T;
   title?: T;
   alt?: T;
   visibility?: T;
@@ -663,6 +668,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
+  cover?: T;
   slug?: T;
   stage?: T;
   category?: T;
@@ -678,7 +684,6 @@ export interface ProjectsSelect<T extends boolean = true> {
         name?: T;
         id?: T;
       };
-  cover?: T;
   demoURL?: T;
   repositoryURL?: T;
   featured?: T;

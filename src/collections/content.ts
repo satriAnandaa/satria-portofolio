@@ -133,6 +133,17 @@ export const Users: CollectionConfig = {
 
 export const Projects = content("projects", "Proyek", [
   {
+    name: "cover",
+    label: "Foto / gambar proyek",
+    type: "upload",
+    relationTo: "media",
+    filterOptions: { mimeType: { contains: "image/" } },
+    admin: {
+      description:
+        "Klik Buat Baru untuk mengunggah foto, atau Pilih dari yang sudah ada untuk memakai Pustaka media. Pada berkas yang diunggah, isi deskripsi gambar dan pilih visibilitas Publik agar foto tampil di website.",
+    },
+  },
+  {
     ...text("slug", "Alamat halaman (slug)", true),
     unique: true,
     index: true,
@@ -167,13 +178,6 @@ export const Projects = content("projects", "Proyek", [
     labels: { singular: "Teknologi", plural: "Teknologi" },
     type: "array",
     fields: [text("name", "Nama", true)],
-  },
-  {
-    name: "cover",
-    label: "Gambar",
-    type: "upload",
-    relationTo: "media",
-    filterOptions: { mimeType: { contains: "image/" } },
   },
   url("demoURL", "URL demo"),
   url("repositoryURL", "URL repositori"),
@@ -273,6 +277,19 @@ export const Media: CollectionConfig = {
     afterChange: [revalidateContent],
   },
   fields: [
+    // Keep the database shape stable for local uploads and the S3 adapter.
+    {
+      name: "_objectKey",
+      type: "text",
+      admin: {
+        hidden: true,
+        readOnly: true,
+        disableBulkEdit: true,
+        disableGroupBy: true,
+        disableListColumn: true,
+        disableListFilter: true,
+      },
+    },
     text("title", "Judul", true),
     {
       ...text("alt", "Deskripsi gambar"),

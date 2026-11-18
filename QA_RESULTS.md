@@ -1,5 +1,14 @@
 # Hasil verifikasi migrasi lokal
 
+## Perbaikan Pustaka media dan foto proyek 18 November 2026
+
+- Mereproduksi halaman daftar media kosong di produksi. Log Vercel menunjukkan query gagal karena kolom portfolio.media._objectkey belum ada; halaman unggah tetap dapat terbuka.
+- Menambahkan migrasi 20261118_032500_media_storage_key yang hanya menambah kolom nullable _objectkey. Menyatakan field tersembunyi _objectKey pada koleksi media agar bentuk skema konsisten pada penyimpanan lokal dan S3.
+- Migrasi produksi berhasil. Halaman daftar media kembali menampilkan judul, pencarian, tombol membuat berkas, unggah massal, dan keadaan kosong yang benar.
+- Uji satu PNG privat melalui Payload berhasil mengunggah ke S3, membaca metadata, memverifikasi objek S3, dan memastikan pengunjung anonim tidak dapat menemukan media privat. Objek dan record uji dihapus; jumlah media kembali seperti semula.
+- Kolom Foto / gambar proyek dipindah tepat setelah judul dengan petunjuk unggah baru atau memilih berkas yang ada. Nama field cover dipertahankan sehingga referensi foto proyek tidak berubah.
+- TypeScript dan build produksi berhasil.
+
 ## Perapian admin 18 November 2026
 
 - Meninjau rekaman 20261118-0247-54.6329795.mp4: beranda, menu samping, dan formulir media.
